@@ -2,7 +2,7 @@ var loginBrowser = mp.browsers.new("package://login/index.html");
 mp.gui.cursor.show(true, true);
 
 mp.events.add("loginDataToServer", (user, pass, state) => {
-    mp.events.callRemote("sendDataToServer", user, pass, state);
+    mp.events.callRemote("sendDataToServer", user, pass, state);  
 });
 mp.events.add("client:login:banned", (state,day) => {
     loginBrowser.execute("Banned('" + state + "','" + "Dein Account ist noch bis zum " + day+ " gesperrt!" + "');");

@@ -84,9 +84,6 @@ mp.events.add("sendDataToServer", (player, username, pass, state) => {
                                 gm.mysql.handle.query('INSERT INTO `accounts` SET username = ?, password = ?', [username, hash], function(err, res){
                                     if(!err){
                                         player.name = username;
-                                        player.call("loginHandler", ["registered"]);
-                                        gm.auth.registerAccount(player);
-                                        gm.auth.loadAccount(player);
                                         console.log("\x1b[92m" + username + "\x1b[39m has just registered.");
                                     } else {
                                         console.log("\x1b[31m[ERROR] " + err)

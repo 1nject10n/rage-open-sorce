@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-27 03:46:55
+Date: 2019-07-27 16:22:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,16 +21,16 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `socialClub` varchar(255) NOT NULL,
-  `hardwareID` varchar(255) NOT NULL,
-  `devServer` int(11) NOT NULL,
-  `teamStatus` int(11) NOT NULL,
-  `banned` int(11) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `socialClub` varchar(255) DEFAULT NULL,
+  `hardwareID` varchar(255) NOT NULL DEFAULT 'none',
+  `devServer` int(11) NOT NULL DEFAULT '0',
+  `teamStatus` int(11) NOT NULL DEFAULT '0',
+  `banned` int(11) NOT NULL DEFAULT '0',
   `bannedDay` varchar(255) NOT NULL DEFAULT 'none',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accounts
@@ -134,7 +134,7 @@ CREATE TABLE `characters` (
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '444.127', '-1015.35', '28.6143', '89.6239', '0', '58', '77', '38', '0', '6', 'Civillian', 'Zivil', '0', '0', '1', '0', '25489', '0', '323548632', '0', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
+INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '340.643', '-1396.09', '32.5093', '0', '0', '48', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '1', '0', '0', '0', '25489', '0', '323548632', '0', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
 INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
@@ -321,11 +321,7 @@ CREATE TABLE `user_items` (
 -- ----------------------------
 -- Records of user_items
 -- ----------------------------
-INSERT INTO `user_items` VALUES ('5', '2', '4', '1');
-INSERT INTO `user_items` VALUES ('6', '2', '192', '1');
-INSERT INTO `user_items` VALUES ('7', '2', '194', '1');
-INSERT INTO `user_items` VALUES ('8', '2', '196', '1');
-INSERT INTO `user_items` VALUES ('9', '2', '198', '1');
+INSERT INTO `user_items` VALUES ('5', '2', '1', '8');
 
 -- ----------------------------
 -- Table structure for `vehiclekeys`
@@ -338,11 +334,12 @@ CREATE TABLE `vehiclekeys` (
   `amount` int(11) DEFAULT NULL,
   `isActive` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of vehiclekeys
 -- ----------------------------
+INSERT INTO `vehiclekeys` VALUES ('1', '2', '1', '3', 'Y');
 
 -- ----------------------------
 -- Table structure for `vehicles`
