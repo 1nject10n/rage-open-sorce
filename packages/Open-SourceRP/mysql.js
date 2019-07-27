@@ -43,7 +43,7 @@ module.exports =
         });
     }
 };
-
+//
 mp.events.add("sendDataToServer", (player, username, pass, state) => {
     let loggedAccount = mp.players.toArray().find(p => p.loggedInAs == username);
     switch(state){
