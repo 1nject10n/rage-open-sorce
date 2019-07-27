@@ -69,13 +69,17 @@ mp.events.add("server:lspd:mainMenu", (player,slot) => {
 	}
 	else if(slot == 1)
 	{
+        target.playAnimation("mp.arresting", "idle", 1,49);
+        target.setVariable("arresting",true);
 		target.notify("Dir wurden Handstellen angelegt!");
 		player.notify("Bürger festgenommen");
 	}
 	else if(slot == 2)
 	{
 		target.notify("Die Handschellen wurden dir abgenommen!");
-		player.notify("Bürger freigelassen");
+        player.notify("Bürger freigelassen");
+        target.stopAnimation();
+        target.setVariable("arresting",false);
 	}
 	else if(slot == 3)
 	{
