@@ -83,33 +83,3 @@ function loadAtm()
         }        
     })
 }
-loadVehicles();
-function loadVehicles()
-{
-    gm.mysql.handle.query('SELECT * FROM vehicles', [], function (error, results, fields) {
-        for(let i = 0; i < results.length; i++) {
-        conf.veh_params[i]['model'] = results[i].model;
-        conf.veh_params[i]['id'] = results[i].id;
-        conf.veh_params[i]['modelId'] = results[i].modelId;
-        conf.veh_params[i]['numberPlate'] = results[i].numberplate;
-        conf.veh_params[i]['posX'] = parseFloat(results[i].posX);
-        conf.veh_params[i]['posY'] = parseFloat(results[i].posY);
-        conf.veh_params[i]['posZ'] = parseFloat(results[i].posZ);
-        conf.veh_params[i]['posR'] = parseFloat(results[i].posR);
-        
-
-        conf.sys_veh[i] = mp.vehicles.new(mp.joaat(conf.veh_params[i]['model']), new mp.Vector3(parseFloat(conf.veh_params[i]['posX']), parseFloat(conf.veh_params[i]['posY']), parseFloat(conf.veh_params[i]['posZ'])),
-        {
-                heading: conf.veh_params[i]['pos_r'],
-                numberPlate: conf.veh_params[i]['numberPlate'],
-                locked: true,
-                engine: false,
-                dimension: 0
-        });
-        conf.sys_veh[i].setVariable("vehId",conf.veh_params[i]['id']);
-
-        conf.sys_veh[i].engine = false;
-        }
-            
-        });
-}
