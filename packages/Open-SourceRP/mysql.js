@@ -6,7 +6,6 @@ module.exports =
     handle: null,
 
     connect: function(call){
-        var localhost = "212.224.120.66";
         this.handle = mysql.createConnection({
             
             host: "localhost",
