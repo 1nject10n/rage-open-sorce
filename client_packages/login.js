@@ -4,6 +4,13 @@ mp.gui.cursor.show(true, true);
 mp.events.add("loginDataToServer", (user, pass, state) => {
     mp.events.callRemote("sendDataToServer", user, pass, state);  
 });
+
+mp.events.add("createDataToServer", (first, last, bday) => {
+    mp.events.callRemote("sendCreateDataToServer", first, last, bday);  
+});
+
+
+
 mp.events.add("client:login:banned", (state,day) => {
     loginBrowser.execute("Banned('" + state + "','" + "Dein Account ist noch bis zum " + day+ " gesperrt!" + "');");
     mp.events.call("loginHandler", "banned");
@@ -20,7 +27,6 @@ mp.events.add("loginHandler", (handle) => {
         {
             loginBrowser.destroy();
             mp.gui.chat.activate(true);
-            mp.gui.cursor.show(false, false);
             break;
         }
         case "banned":

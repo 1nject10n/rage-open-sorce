@@ -108,6 +108,16 @@ mp.events.add("sendDataToServer", (player, username, pass, state) => {
     }
 });
 
+mp.events.add("sendCreateDataToServer", (player,first, last, bday) => {
+        gm.mysql.handle.query("INSERT INTO characters SET accountID = ?,firstname = ?, lastname = ?, bday = ?",[player.data.accountID,first,last,bday],function(err1,res1) {
+            if (err1) console.log("Error in insert Characters: "+err1);
+            if (res1.length > 0) {   
+                player.call("client:character:destroy");             
+            }
+        });
+    
+});
+
 mp.events.add("playerQuit", (player) => {
     if(player.loggedInAs != ""){
         gm.auth.saveAccount(player);

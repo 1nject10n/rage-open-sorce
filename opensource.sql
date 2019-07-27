@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-27 16:22:53
+Date: 2019-07-27 19:55:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,12 +30,15 @@ CREATE TABLE `accounts` (
   `banned` int(11) NOT NULL DEFAULT '0',
   `bannedDay` varchar(255) NOT NULL DEFAULT 'none',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accounts
 -- ----------------------------
 INSERT INTO `accounts` VALUES ('2', 'SnillocTV', '$2a$10$4U38PHJ6lFno2OR8YYEVV.5X7S1lr/esKOlJpZIIq6psT2DT4WV3m', 'HappyAngle2018', 'D8903A045B468240F6E46180E642C110B918AC0CC6C8F78057F018C8DD223FC0E84C9E6C60B48158D9BA6430DB44143010AE08A056B6E938FE90A2587796E180', '0', '0', '0', 'none');
+INSERT INTO `accounts` VALUES ('7', 'test', '$2a$10$OIX3B4nqUUlpIV5gMrh5/OpxcC5YaLea7jEo0X65elftcafG8.XN2', 'HappyAngle2018', 'D8903A045B468240F6E46180E642C110B918AC0CC6C8F78057F018C8DD223FC0E84C9E6C60B48158D9BA6430DB44143010AE08A056B6E938FE90A2587796E180', '0', '0', '0', 'none');
+INSERT INTO `accounts` VALUES ('8', 'testbeHansnutzer', '$2a$10$avX0Qa1fs4HqzIT34kqssegYzNIABMEFCkQKD0dCqCNSUeq7q3/KW', null, 'none', '0', '0', '0', 'none');
+INSERT INTO `accounts` VALUES ('9', 'testbAnnaenutzer', '$2a$10$W1Ru8oxW2XbVazBcj1aMb.Kj1cpXhee4ncCmN6C4xehh3Ko2xbHn2', null, 'none', '0', '0', '0', 'none');
 
 -- ----------------------------
 -- Table structure for `atms`
@@ -80,62 +83,62 @@ INSERT INTO `bank_konten` VALUES ('1', '2', '5000.00', '14654565', 'Anna Klein')
 DROP TABLE IF EXISTS `characters`;
 CREATE TABLE `characters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `accountID` int(11) NOT NULL,
-  `ped` int(11) NOT NULL,
-  `pedHash` int(11) NOT NULL,
-  `created` int(11) NOT NULL DEFAULT '0',
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `posX` float NOT NULL,
-  `posY` float NOT NULL,
-  `posZ` float NOT NULL,
-  `posR` float NOT NULL,
-  `dimension` int(11) NOT NULL,
-  `health` float NOT NULL,
-  `armor` float NOT NULL,
-  `food` float NOT NULL,
-  `drink` float NOT NULL,
-  `adminRank` int(11) NOT NULL,
-  `faction` varchar(1255) NOT NULL DEFAULT 'Civillian',
-  `factioncloth` varchar(1255) NOT NULL DEFAULT 'Zivil',
-  `duty` int(11) NOT NULL DEFAULT '0',
-  `onlineId` int(11) NOT NULL DEFAULT '0',
-  `isOnline` int(11) NOT NULL DEFAULT '0',
-  `factionrang` int(11) NOT NULL,
-  `money` float NOT NULL,
-  `phone` int(11) NOT NULL,
-  `phoneNumber` int(11) NOT NULL,
-  `isCreator` int(11) NOT NULL,
-  `data` text NOT NULL,
-  `hat` int(11) NOT NULL,
-  `hattext` int(11) NOT NULL,
-  `eye` int(11) NOT NULL,
-  `eyetext` int(11) NOT NULL,
-  `mask` int(11) NOT NULL,
-  `masktext` int(11) NOT NULL,
-  `shirt` int(11) NOT NULL,
-  `shirttext` int(11) NOT NULL,
-  `jacket` int(11) NOT NULL,
-  `jackettext` int(11) NOT NULL,
-  `body` int(11) NOT NULL,
-  `bodytext` int(11) NOT NULL,
-  `torso` int(11) NOT NULL,
-  `leg` int(11) NOT NULL,
-  `legtext` int(11) NOT NULL,
-  `shoe` int(11) NOT NULL,
-  `shoetext` int(11) NOT NULL,
-  `earpice` int(11) NOT NULL,
-  `accessoire` int(11) NOT NULL,
-  `arm` int(11) NOT NULL,
-  `bday` int(11) DEFAULT NULL,
+  `accountID` int(11) DEFAULT '0',
+  `ped` int(11) DEFAULT '0',
+  `pedHash` int(11) DEFAULT '0',
+  `created` int(11) DEFAULT '0',
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `posX` float DEFAULT '0',
+  `posY` float DEFAULT '0',
+  `posZ` float DEFAULT '0',
+  `posR` float DEFAULT '0',
+  `dimension` int(11) DEFAULT '0',
+  `health` float DEFAULT '100',
+  `armor` float DEFAULT '0',
+  `food` float DEFAULT '0',
+  `drink` float DEFAULT '0',
+  `adminRank` int(11) DEFAULT '0',
+  `faction` varchar(1255) DEFAULT 'Civillian',
+  `factioncloth` varchar(1255) DEFAULT 'Zivil',
+  `duty` int(11) DEFAULT '0',
+  `onlineId` int(11) DEFAULT '0',
+  `isOnline` int(11) DEFAULT '0',
+  `factionrang` int(11) DEFAULT '0',
+  `money` float DEFAULT '500',
+  `phone` int(11) DEFAULT '0',
+  `phoneNumber` int(11) DEFAULT '0',
+  `data` varchar(555) DEFAULT '0',
+  `hat` int(11) DEFAULT '0',
+  `hattext` int(11) DEFAULT '0',
+  `eye` int(11) DEFAULT '0',
+  `eyetext` int(11) DEFAULT '0',
+  `mask` int(11) DEFAULT '0',
+  `masktext` int(11) DEFAULT '0',
+  `shirt` int(11) DEFAULT '0',
+  `shirttext` int(11) DEFAULT '0',
+  `jacket` int(11) DEFAULT '0',
+  `jackettext` int(11) DEFAULT '0',
+  `body` int(11) DEFAULT '0',
+  `bodytext` int(11) DEFAULT '0',
+  `torso` int(11) DEFAULT '0',
+  `leg` int(11) DEFAULT '0',
+  `legtext` int(11) DEFAULT '0',
+  `shoe` int(11) DEFAULT '0',
+  `shoetext` int(11) DEFAULT '0',
+  `earpice` int(11) DEFAULT '0',
+  `accessoire` int(11) DEFAULT '0',
+  `arm` int(11) DEFAULT '0',
+  `bday` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '340.643', '-1396.09', '32.5093', '0', '0', '48', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '1', '0', '0', '0', '25489', '0', '323548632', '0', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
-INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '340.643', '-1396.09', '32.5093', '359.993', '0', '96', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '1', '0', '0', '0', '25489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
+INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `characters` VALUES ('9', '7', '0', '0', '1', 'test', 'test', '-0.407334', '19.3227', '71.0686', '124.29', '0', '51', '0', '0', '0', '0', 'Civillian', 'Zivil', '0', '0', '1', '0', '500', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":0,\"Mother\":21,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '255', '0', '0', '0', '0', '0', '15', '0', '41', '0', '255', '0', '6', '1', '0', '1', '0', '0', '0', '0', '2134165');
 
 -- ----------------------------
 -- Table structure for `faction`
@@ -237,13 +240,16 @@ CREATE TABLE `licenses` (
   `pilot` int(11) NOT NULL DEFAULT '0',
   `job` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of licenses
 -- ----------------------------
 INSERT INTO `licenses` VALUES ('4', '2', '1', '1', '1', '1', '1', '1');
 INSERT INTO `licenses` VALUES ('5', '3', '0', '0', '0', '0', '0', '0');
+INSERT INTO `licenses` VALUES ('6', '8', '0', '0', '0', '0', '0', '0');
+INSERT INTO `licenses` VALUES ('7', '9', '0', '0', '0', '0', '0', '0');
+INSERT INTO `licenses` VALUES ('8', '9', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `shortcuts`
@@ -298,13 +304,16 @@ CREATE TABLE `shortcuts` (
   `num9animD` int(11) DEFAULT NULL,
   `num9name` varchar(255) DEFAULT 'Nicht Belegt',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shortcuts
 -- ----------------------------
 INSERT INTO `shortcuts` VALUES ('1', '2', '\"amb@world_human_sunbathe@male@back@base\"', '\"base\"', '1', '35', 'Auf dem Rücken liegen', '\"timetable@amanda@drunk@idle_a\"', '\"idle_pinot\"', '1', '33', 'Betrunken liegen', '\"amb@world_human_yoga@female@base\"', '\"base_c\"', '1', '33', 'Yoga 5', '\"anim@heists@fleeca_bank@ig_7_jetski_owner\"', '\"owner_idle\"', '1', '33', 'Sitzen (Männl.)', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Winken', '\"anim@mp_player_intcelebrationmale@freakout\"', '\"freakout\"', '1', '49', 'Ausrasten', '\"amb@lo_res_idles@\"', '\"world_human_picnic_female_lo_res_base\"', '1', '33', 'Sitzen (Weibl.)', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Nicht Belegt', '\"anim@mp_player_intupperface_palm\"', '\"idle_a\"', '1', '49', 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('5', '3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', null, null, null, null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
+INSERT INTO `shortcuts` VALUES ('6', '8', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
+INSERT INTO `shortcuts` VALUES ('7', '9', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
+INSERT INTO `shortcuts` VALUES ('8', '9', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 
 -- ----------------------------
 -- Table structure for `user_items`

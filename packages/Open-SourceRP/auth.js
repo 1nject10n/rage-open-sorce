@@ -113,6 +113,9 @@ module.exports =
                                         } catch(e){
                                             console.log("ERROR - run in catch 2- login.js: " + e);
                                         }
+                                    } else {
+                                        player.call("client:character:create",playerData.id);
+                                        player.call("loginHandler", ["destroy"]);
                                     }
                                     });
 
@@ -241,6 +244,10 @@ module.exports =
                                         } catch(e){
                                             console.log("ERROR - run in catch 3- login.js: " + e);
                                         }
+                                    } else {
+                                        player.data.accountID = playerData.id;
+                                        player.call("client:character:create",playerData.id);
+                                        player.call("loginHandler", ["destroy"]);                                        
                                     }
                                     });
                                 gm.mysql.handle.query('SELECT * FROM characters WHERE accountID = ?', [playerData.id], function (err1, res1, row1) {

@@ -113,12 +113,14 @@ mp.events.add("server:characters:clothes", (player,slot) => {
     let leg = player.getClothes(4);
     let shoe = player.getClothes(6);
     let shirt = player.getClothes(8);
+    let body = player.getClothes(9);
     gm.clothes.SetPlayerClothes(player,"hat",hat.drawable, hat.texture);
     gm.clothes.SetPlayerClothes(player,"jacket",jackets.drawable,jackets.texture);
     gm.clothes.SetPlayerClothes(player,"torso",torso.drawable,0);
     gm.clothes.SetPlayerClothes(player,"leg",leg.drawable,leg.texture);
     gm.clothes.SetPlayerClothes(player,"shoe",shoe.drawable,shoe.texture);
     gm.clothes.SetPlayerClothes(player,"shirt",shirt.drawable,shirt.texture);
+    gm.clothes.SetPlayerClothes(player,"body",body.drawable,body.texture);
 
     player.call("client:characters:closeClothes");
     player.call("client:characters:closeCamera");

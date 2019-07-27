@@ -45,3 +45,15 @@ mp.events.add('render', () => {
   mp.game.player.setHealthRechargeMultiplier(0.0);
 });
 
+var createchar = null;
+mp.events.add("client:character:create",(id) => {
+  if (createchar !== null) createchar.destroy();
+    createchar = mp.browsers.new('package://charcreate/index.html');
+    mp.game.player.setInvincible(true);
+    mp.gui.cursor.visible = true;
+});
+
+mp.events.add("client:character:destroy",() => {
+  player.call("loginHandler", ["destroy"]);  
+});
+
