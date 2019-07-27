@@ -1,3 +1,5 @@
+import { isNullOrUndefined } from "util";
+
 mp.events.add("server:lspd:clothes", (player,name) => {
     if (name == "Standard-Uniform") {
                 
@@ -510,6 +512,23 @@ mp.events.add("server:lspd:spawnVehicle",(player,type) => {
     }
 });
 
+
+mp.events.add("server:lspd:einstellen",(player) => {
+    if (currentTarget !== null) {
+        if (currentTarget.data.faction == "Civillian") {
+            gm.mysql.handle.query("UPDATE characters SET faction = 'LSPD', factionrang = '1' WHERE id = ?",[currentTarget.data.charId], function (err,res) {
+                if (err) console.log("Error in Update Faction user: "+err);
+                if (res.length > 0) {
+                    player.notify("~g~Der Bürger wurde eingestellt");
+                    currentTarget.notify("Sie wurden beim LSPD eingestellt!");
+                }
+            });
+        } else {    
+            player.notify("~r~Der Bürger ist schon in einer Fraktion");
+        }
+    }
+})
+
 mp.events.add("server:lspd:parkin",(player,x,y,z) => {
     const pos = new mp.Vector3(player.position);
     console.log("Test: "+pos);
@@ -528,3 +547,20 @@ function getVehicleFromPosition(position, range) {
     );
     return returnVehicles;
 }
+
+var currentTarget = null;
+
+function getNearestPlayer(player, range) {
+    let dist = range;
+    mp.players.forEachInRange(player.position, range,
+        (_player) => {
+            if (player != _player) {
+                let _dist = _player.dist(player.position);
+                if (_dist < dist) {
+                    currentTarget = _player;
+                    dist = _dist;
+                }
+            }
+        }
+    );
+};

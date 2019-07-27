@@ -60,8 +60,9 @@ mp.events.add("client:lspd:openMemberMenu", () => {
   memberMenuLSPD.AddItem(new UIMenuItem("Entlassen","Person entlassen"));
   memberMenuLSPD.Open();
   memberMenuLSPD.ItemSelect.on((item, index) => {  
-    const nextMenu = index;    
-    mp.events.callRemote("server:lspd:memberMenu",nextMenu);
+     if (item.Text == "Einstellen") {
+      mp.events.callRemote("server:lspd:einstellen");
+     }    
   });
 });
 mp.events.add("client:lspd:closeMemberMenu", () => {
