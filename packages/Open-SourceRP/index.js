@@ -32,7 +32,7 @@ function setOnline()
 {
     gm.mysql.handle.query("UPDATE characters SET isOnline = '0' WHERE 1=1",[], function(err,res) {
         if(err) console.log("Error in Startup Onlinestatus; "+err);
-        console.log("Onlinestatus geupadtet");
+        console.log("Onlinestatus geupdatet");
     });
 }
 
