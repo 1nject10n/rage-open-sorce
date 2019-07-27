@@ -463,6 +463,7 @@ mp.events.add("server:charchooser:menuclick", (player, id) => {
                                     
                                     player.call("client:characters:selection",[player.data.firstname, player.data.lastname]);
                                     mp.events.call("server:faction:loadmarker",player);
+                                    mp.events.call("server:garage:loadmarker",player);
                                     gm.mysql.handle.query("UPDATE characters SET isOnline = '1' , onlineId = ? WHERE id = ?", [player.id,player.data.charId],function(err5,res5) {
                                         if(err5) console.log("Error in Update Online Status: "+err5);
                                     });

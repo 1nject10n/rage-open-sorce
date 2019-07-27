@@ -44,7 +44,7 @@ function loadGarage()
         for(let i=0; i<results.length; i++) {
             conf.garage_params[i]['id'] = results[i].id;
 
-            conf.garage_params[i]['name'] = results[i].name;
+            conf.garage_params[i]['id'] = results[i].id;
             conf.garage_params[i]['pedX'] = results[i].pedx;
             conf.garage_params[i]['pedY'] = results[i].pedy;
             conf.garage_params[i]['pedZ'] = results[i].pedz;
@@ -56,7 +56,7 @@ function loadGarage()
                 color: 0,
                 shortRange: true,
             });
-            player.call("createPed",[conf.garage_params[i]['pedX'],conf.garage_params[i]['pedY'],conf.garage_params[i]['pedZ'],conf.garage_params[i]['pedR']])
+            conf.garage_params[i] = mp.markers.new(1,new mp.Vector3(conf.garage_params[i]['pedX'],conf.garage_params[i]['pedY'],conf.garage_params[i]['pedZ'],-0.979), 2, { color: [255,255,255,100],visible: true});
             
         }
             

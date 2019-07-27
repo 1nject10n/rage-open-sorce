@@ -104,8 +104,6 @@ mp.events.add("server:vehiclemenu:togglelock", (Player) => {
     mp.vehicles.forEachInRange(Player.position, 2.5, (NearbyVehicle) => {
         NearbyVehicles.push(NearbyVehicle);
     });
-
-	  // Sortiert die Fahrzeuge nach entfernung (0 ist das nähste zum Spieler)
     NearbyVehicles.sort(function(a, b){return b.dist(Player.position)-a.dist(Player.position)});
 
       if( NearbyVehicles.length > 0 )

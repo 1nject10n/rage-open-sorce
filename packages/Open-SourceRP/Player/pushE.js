@@ -22,6 +22,7 @@ mp.events.add("PushE", (player) => {
 			let distance5 = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].chiefX), parseFloat(results[i].chiefY), parseFloat(results[i].chiefZ)));
 			let distance6 = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].vehicleX), parseFloat(results[i].vehicleY), parseFloat(results[i].vehicleZ)));
 			let distance7 = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].parkX), parseFloat(results[i].parkY), parseFloat(results[i].parkZ)));
+			let distance8 = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].pedX), parseFloat(results[i].pedY), parseFloat(results[i].pedZ),parseInt(results[i].id)));
              
             if(distance <= 1)
             {
@@ -53,17 +54,28 @@ mp.events.add("PushE", (player) => {
 			else if(distance7 <=1)
 			{
 				mp.events.call("server:lspd:parkin",(player));
-			}
+			}	
         }
     }
-    });
+	});
+	
+		gm.mysql.handle.query('SELECT * FROM garage WHERE 1=1', [], function (error, results, fields) {
+			console.log("Test: "+results.length)
+		for(let i = 0; i < results.length; i++) {
+			let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].pedx), parseFloat(results[i].pedy), parseFloat(results[i].pedz),parseInt(results[i].id)));				
+			if(distance <= 1)
+			{
+				var garageid = results[i].id;
+				player.call("client:garage:openmenu",[garageid]);
+			}		
+		}	
+		});		
 	}  
 	for(let i = 0; i < conf.sys_atms.length; i++) {
 		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(conf.atms_params[i]['posX']), parseFloat(conf.atms_params[i]['posY']), parseFloat(conf.atms_params[i]['posZ'])));
 			if(distance <= 5)
 			{
 				if (conf.atms_params[i]['usable'] == 0) {
-					console.log("Test5");
 					mp.events.call("server:bank:konten",player,atmid);
 				} else {
 					player.notify("~r~Der ATM ist kaputt!");

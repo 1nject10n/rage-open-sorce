@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-27 19:55:42
+Date: 2019-07-28 01:57:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -136,9 +136,9 @@ CREATE TABLE `characters` (
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '340.643', '-1396.09', '32.5093', '359.993', '0', '96', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '1', '0', '0', '0', '25489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
+INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '161.58', '-1036.96', '29.2911', '270.176', '0', '96', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '1', '0', '1', '0', '25489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
 INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `characters` VALUES ('9', '7', '0', '0', '1', 'test', 'test', '-0.407334', '19.3227', '71.0686', '124.29', '0', '51', '0', '0', '0', '0', 'Civillian', 'Zivil', '0', '0', '1', '0', '500', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":0,\"Mother\":21,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '255', '0', '0', '0', '0', '0', '15', '0', '41', '0', '255', '0', '6', '1', '0', '1', '0', '0', '0', '0', '2134165');
+INSERT INTO `characters` VALUES ('9', '7', '0', '0', '1', 'test', 'test', '-0.0807889', '19.5883', '71.0562', '124.29', '0', '31', '0', '0', '0', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '500', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":0,\"Mother\":21,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '255', '0', '0', '0', '0', '0', '15', '0', '41', '0', '255', '0', '6', '1', '0', '1', '0', '0', '0', '0', '2134165');
 
 -- ----------------------------
 -- Table structure for `faction`
@@ -197,12 +197,13 @@ CREATE TABLE `garage` (
   `spawn2z` int(11) DEFAULT NULL,
   `spawn2r` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of garage
 -- ----------------------------
 INSERT INTO `garage` VALUES ('1', 'test', '162', '-1037', '29', '266', '166', '-1037', '29', '266', '166', '-1037', '29', '266');
+INSERT INTO `garage` VALUES ('2', null, '170', '-1039', '29', '254', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `items`
@@ -357,8 +358,9 @@ DROP TABLE IF EXISTS `vehicles`;
 CREATE TABLE `vehicles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `model` varchar(50) DEFAULT NULL,
+  `charId` int(11) DEFAULT NULL,
   `numberPlate` varchar(50) DEFAULT 'NOLIC',
-  `parked` int(11) DEFAULT '0',
+  `parked` int(11) DEFAULT '1',
   `impounded` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -366,8 +368,8 @@ CREATE TABLE `vehicles` (
 -- ----------------------------
 -- Records of vehicles
 -- ----------------------------
-INSERT INTO `vehicles` VALUES ('1', 'Raiden', 'Gurke', null, null);
-INSERT INTO `vehicles` VALUES ('2', 'Raiden', 'Gurke', null, null);
-INSERT INTO `vehicles` VALUES ('3', 'Raiden', 'Gurke', null, null);
-INSERT INTO `vehicles` VALUES ('4', 'Raiden', 'Gurke', null, null);
-INSERT INTO `vehicles` VALUES ('5', 'Raiden', 'Gurke', null, null);
+INSERT INTO `vehicles` VALUES ('1', 'raiden', '2', 'Gurke', '0', '0');
+INSERT INTO `vehicles` VALUES ('2', 'Raiden', '2', 'Gurke', '0', '0');
+INSERT INTO `vehicles` VALUES ('3', 'Raiden', '2', 'Gurke', '0', '0');
+INSERT INTO `vehicles` VALUES ('4', 'Raiden', '2', 'Gurke', '0', '0');
+INSERT INTO `vehicles` VALUES ('5', 'Raiden', '2', 'Gurke', '0', '0');
