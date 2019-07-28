@@ -8,16 +8,13 @@ mp.events.add("server:shop:loadmarker", (player) => {
 
 
 mp.events.add("server:shop:openShop",(player, id) => {
-    console.log("ID: "+id)
     gm.mysql.handle.query("SELECT * FROM shop_items WHERE shopId = ?",[id],function(err,res) {
         if (err) console.log("Error in Select Shop Items: "+err);
         if (res.length > 0) {
             var i = 1;
-            let ItemList = [];     
-            console.log("Item: "+res)       
+            let ItemList = [];          
             res.forEach(function(shop) {
                 let obj = {"name": String(shop.name), "price": String(shop.price), "id": String(shop.itemId)};
-                console.log("Item: "+obj);
                 ItemList.push(obj);                
                 if (parseInt(i) == parseInt(res.length)) {
                     if(mp.players.exists(player)) player.call("client:shop:drawMenu", [JSON.stringify(ItemList)]);

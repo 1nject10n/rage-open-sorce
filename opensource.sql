@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-28 19:35:15
+Date: 2019-07-28 20:09:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -78,6 +78,26 @@ CREATE TABLE `bank_konten` (
 INSERT INTO `bank_konten` VALUES ('1', '2', '30000.00', '14654565', 'Anna Klein');
 
 -- ----------------------------
+-- Table structure for `blips`
+-- ----------------------------
+DROP TABLE IF EXISTS `blips`;
+CREATE TABLE `blips` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `posX` float NOT NULL DEFAULT '0',
+  `posY` float NOT NULL DEFAULT '0',
+  `name` varchar(50) NOT NULL DEFAULT '0',
+  `color` int(11) NOT NULL DEFAULT '0',
+  `blipid` int(11) NOT NULL DEFAULT '0',
+  `scale` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of blips
+-- ----------------------------
+INSERT INTO `blips` VALUES ('1', '-85.276', '38.127', 'License Shop', '1', '1', '1');
+
+-- ----------------------------
 -- Table structure for `characters`
 -- ----------------------------
 DROP TABLE IF EXISTS `characters`;
@@ -136,7 +156,7 @@ CREATE TABLE `characters` (
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '26.3594', '-1345.01', '29.497', '57.2825', '0', '60', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '0', '0', '1', '0', '489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
+INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '-81.8236', '40.2807', '71.9251', '273.714', '0', '72', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '0', '0', '1', '0', '489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
 INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `characters` VALUES ('9', '7', '0', '0', '1', 'test', 'test', '-0.0807889', '19.5883', '71.0562', '124.29', '0', '31', '0', '0', '0', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '500', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":0,\"Mother\":21,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '255', '0', '0', '0', '0', '0', '15', '0', '41', '0', '255', '0', '6', '1', '0', '1', '0', '0', '0', '0', '2134165');
 
@@ -350,7 +370,7 @@ CREATE TABLE `shortcuts` (
 -- ----------------------------
 -- Records of shortcuts
 -- ----------------------------
-INSERT INTO `shortcuts` VALUES ('1', '2', '\"amb@world_human_sunbathe@male@back@base\"', '\"base\"', '1', '35', 'Auf dem Rücken liegen', '\"timetable@amanda@drunk@idle_a\"', '\"idle_pinot\"', '1', '33', 'Betrunken liegen', '\"amb@world_human_yoga@female@base\"', '\"base_c\"', '1', '33', 'Yoga 5', '\"anim@heists@fleeca_bank@ig_7_jetski_owner\"', '\"owner_idle\"', '1', '33', 'Sitzen (Männl.)', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Winken', '\"anim@mp_player_intcelebrationmale@freakout\"', '\"freakout\"', '1', '49', 'Ausrasten', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Winken', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Nicht Belegt', '\"anim@mp_player_intupperface_palm\"', '\"idle_a\"', '1', '49', 'Nicht Belegt');
+INSERT INTO `shortcuts` VALUES ('1', '2', '\"amb@world_human_sunbathe@male@back@base\"', '\"base\"', '1', '35', 'Auf dem Rücken liegen', '\"timetable@amanda@drunk@idle_a\"', '\"idle_pinot\"', '1', '33', 'Betrunken liegen', '\"amb@world_human_yoga@female@base\"', '\"base_c\"', '1', '33', 'Yoga 5', '\"anim@heists@fleeca_bank@ig_7_jetski_owner\"', '\"owner_idle\"', '1', '33', 'Sitzen (Männl.)', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Winken', '\"anim@mp_player_intcelebrationmale@freakout\"', '\"freakout\"', '1', '49', 'Ausrasten', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Winken', '\"anim@mp_player_intupperwave\"', '\"idle_a\"', '1', '49', 'Nicht Belegt', '\"amb@world_human_sunbathe@male@back@base\"', '\"base\"', '1', '35', 'Auf dem Rücken liegen');
 INSERT INTO `shortcuts` VALUES ('5', '3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', null, null, null, null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('6', '8', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('7', '9', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
@@ -409,7 +429,7 @@ CREATE TABLE `vehicles` (
 -- ----------------------------
 -- Records of vehicles
 -- ----------------------------
-INSERT INTO `vehicles` VALUES ('1', 'raiden', '2', 'Gurke', '0', '0');
+INSERT INTO `vehicles` VALUES ('1', 'raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('2', 'Raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('3', 'Raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('4', 'Raiden', '2', 'Gurke', '1', '0');
