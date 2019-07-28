@@ -34,7 +34,12 @@ mp.events.add("server:Keybind:ergeben",(player) => {
 }); 
 
 mp.events.add("server:playermenu:interaction",(player) => {
+    if (currentTarget !== null) {
         player.call("client:playermenu:interaction",[player.data.weapona, player.data.weaponb, player.data.pkw, player.data.lkw, player.data.pilot, player.data.job, currentTarget.data.ergeben]);  
+    } else {
+        player.notify("~r~Und mit wem willst du Interargieren??");
+    }
+        
 });
 
 mp.events.add("server:admin:banwetter",(player,targetid) => {
