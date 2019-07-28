@@ -1,7 +1,7 @@
 mp.events.add("server:shop:loadmarker", (player) => {
 	gm.mysql.handle.query('SELECT * FROM shops WHERE 1=1', [], function (error, results, fields) {
 		for(let i = 0; i < results.length; i++) {
-			player.call("LoadShopMarkers",[results[i].posX,results[i].posY,results[i].posZ]);				
+			player.call("LoadShopMarkers",[results[i].posX,results[i].posY,results[i].posZ,results[i].posR,results[i].ped]);				
 		}
 	});	
 });
