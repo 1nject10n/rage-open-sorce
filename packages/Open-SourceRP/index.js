@@ -27,12 +27,15 @@ mp.events.add("playerChat", (player, text) =>
 	mp.players.broadcast(`${player.name}: ${text}`);
 });
 
-setOnline();
-function setOnline()
+loadStatus();
+function loadStatus()
 {
     gm.mysql.handle.query("UPDATE characters SET isOnline = '0' WHERE 1=1",[], function(err,res) {
-        if(err) console.log("Error in Startup Onlinestatus; "+err);
-        console.log("Onlinestatus geupdatet");
+        if(err) console.log("Error in Startup Onlinestatus; "+err);        
+        gm.mysql.handle.query("UPDATE vehicles SET parked = '1' WHERE 1=1",[],function(err1,res1) {
+            if (err1) console.log("Error in Update Vehicles: "+err1);
+            console.log("Status geupdatet");
+        });
     });
 }
 
