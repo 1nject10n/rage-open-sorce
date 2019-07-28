@@ -51,7 +51,7 @@ mp.events.add("server:garage:parkout",(player,vehid,id) => {
                         gm.mysql.handle.query("UPDATE vehicles SET parked = '0' WHERE id = ?",[vehid],function (err2,res2) {
                             if (err2) console.log("Error in Update vehicles: "+err);
                         });
-                    }  else {
+                    } else {
                         player.notify("~r~Spawn is not Free");
                     }
                 } else {

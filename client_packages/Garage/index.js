@@ -27,12 +27,6 @@ mp.events.add("client:garage:openmenu",(id) => {
         } else if (item.Text == "Park in") {
             mp.events.callRemote("server:garage:parkin",id);  
             ui_sub.Close(); 
-        } else if (item.Text == "Geld Einzahlen") {
-            mp.events.call("createInputShop", "moneyeinzahlen");
-            mp.events.callRemote("server:bank:abheben", item.Description,atmid);  
-            ui_sub.Close();
-        } else if (item.Text == "Überweisen") {
-            ui_sub.Close();
         } else {            
             ui_sub.Close();
         }      

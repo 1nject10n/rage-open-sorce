@@ -68,6 +68,11 @@ mp.events.add("LoadGaragenMarkers", (x,y,z) => {
 	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
 });
 
+mp.events.add("LoadShopMarkers", (x,y,z) => {	
+	markerthree = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
+});
+
 mp.events.add("LoadFactionParkingMarkers", (x,y,z) => {
 	
 	markerthree = mp.colshapes.newSphere(x,y,z-0.979, 2);

@@ -25,6 +25,7 @@ require('Passenger');
 require('Hud');
 require('clothingshops');
 require('Garage');
+require('Shop');
 
 mp.gui.chat.show(true);
 mp.gui.chat.activate(false);

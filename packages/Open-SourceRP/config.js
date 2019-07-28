@@ -14,6 +14,10 @@ conf.sys_atms = new Array(500);
 conf.atms_params = new Array(500);
 // FAHRZEUGE
 
+//SHOP
+conf.sys_shop = new Array(500);
+conf.shop_params = new Array(500);
+
 // GARAGE
 conf.sys_garage = new Array(500);
 conf.garage_params = new Array(500);
@@ -40,3 +44,8 @@ for(let i = 0; i <conf.veh_params.length; i++) {
     conf.atms_params[i] = {};
   }
    // ATM
+
+//SHOP
+   for(let i = 0; i <conf.shop_params.length; i++) {
+    conf.shop_params[i] = {};
+  }

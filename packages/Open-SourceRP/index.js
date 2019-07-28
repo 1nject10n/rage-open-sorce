@@ -83,3 +83,61 @@ function loadAtm()
         }        
     })
 }
+
+loadShop();
+function loadShop()
+{
+    gm.mysql.handle.query("SELECT * FROM shops", [], function (error, results, fields) {
+        if(error) console.log("Error in Load Garage: "+error);
+        for(let i=0; i<results.length; i++) {
+            conf.shop_params[i]['id'] = results[i].id;
+
+            conf.shop_params[i]['id'] = results[i].id;
+            conf.shop_params[i]['posX'] = results[i].posX;
+            conf.shop_params[i]['posY'] = results[i].posY;
+            conf.shop_params[i]['posZ'] = results[i].pedZ;
+            conf.shop_params[i] = mp.blips.new(52, new mp.Vector3(conf.shop_params[i]['posX'],conf.shop_params[i]['posY'],conf.shop_params[i]['posZ']),
+            {
+                name: "Shop",
+                color: 4,
+                shortRange: true,
+            });                 
+        }
+            
+    })
+}
+
+/*loadShop();
+function loadShop() {    
+    gm.mysql.handle.query("SELECT * FROM shops WHERE 1=1",[],function(err,res) {
+        console.log("Test: "+res[i].type);
+        if (err) console.log("Error in Select Shops: "+err);
+        for (let i = 0; i < res.length; i++) {
+            conf.shop_params[i]['id'] = res[i].id;
+            conf.shop_params[i]['type'] = res[i].type;
+            conf.shop_params[i]['posX'] = res[i].posX;
+            conf.shop_params[i]['posY'] = res[i].posX;
+            conf.shop_params[i]['posZ'] = res[i].posX;
+            if (res[i].type == 0) {
+                conf.shop_params[i] = mp.blips.new(11, new mp.Vector3(conf.shop_params[i]['posX'], conf.shop_params[i]['posY'], 0),
+                {
+                    name: '24/7 Shop',
+                    color: 4,
+                    drawDistance: 10.0,
+                    shortRange: true,
+                }); 
+            } else {
+                conf.shop_params[i] = mp.blips.new(110, new mp.Vector3(conf.shop_params[i]['posX'], conf.shop_params[i]['posY'], 0),
+                {
+                    name: 'Ammunation',
+                    color: 4,
+                    drawDistance: 10.0,
+                    shortRange: true,
+                }); 
+                conf.shop_params[i] = mp.markers.new(1,new mp.Vector3(conf.shop_params[i]['posX'],conf.shop_params[i]['posY'],conf.shop_params[i]['posZ'],-0.979), 2, { color: [255,255,255,100],visible: true});
+            }
+            
+
+        }
+    });
+}*/

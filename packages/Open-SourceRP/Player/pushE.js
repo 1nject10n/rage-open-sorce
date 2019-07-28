@@ -60,7 +60,6 @@ mp.events.add("PushE", (player) => {
 	});	
 	} 
 	gm.mysql.handle.query('SELECT * FROM garage WHERE 1=1', [], function (error, results, fields) {
-		console.log("Test: "+results.length)
 	for(let i = 0; i < results.length; i++) {
 		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].pedx), parseFloat(results[i].pedy), parseFloat(results[i].pedz),parseInt(results[i].id)));				
 		if(distance <= 1)
@@ -72,7 +71,6 @@ mp.events.add("PushE", (player) => {
 	});	
 
 	gm.mysql.handle.query('SELECT * FROM atms WHERE 1=1', [], function (error, results, fields) {
-		console.log("Test: "+results.length)
 	for(let i = 0; i < results.length; i++) {
 		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].posX), parseFloat(results[i].posY), parseFloat(results[i].posZ),parseInt(results[i].id)));				
 		if(distance <= 1.5)
@@ -85,6 +83,15 @@ mp.events.add("PushE", (player) => {
 		}		
 	}	
 	});	  
+	gm.mysql.handle.query("SELECT * FROM shops WHERE 1=1",[],function(err,res) {
+		if (err) console.log("Error in Select Shops: "+err);
+		for(let i = 0; i < res.length; i++) {
+			let distance = mp.Vector3.Distance2D(player.position, new mp.Vector3(parseFloat(res[i].posX), parseFloat(res[i].posY), parseFloat(res[i].posZ), parseInt(res[i].id), parseInt(res[i].type)));
+			if (distance <= 2) {
+				mp.events.call("server:shop:openShop",player,res[i].id);
+			}
+		}
+	});
 });
 var currentTarget = null;
 mp.events.add("server:faction:interaction", (player) => {
