@@ -57,31 +57,34 @@ mp.events.add("PushE", (player) => {
 			}	
         }
     }
-	});
-	
-		gm.mysql.handle.query('SELECT * FROM garage WHERE 1=1', [], function (error, results, fields) {
-			console.log("Test: "+results.length)
-		for(let i = 0; i < results.length; i++) {
-			let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].pedx), parseFloat(results[i].pedy), parseFloat(results[i].pedz),parseInt(results[i].id)));				
-			if(distance <= 1)
-			{
-				var garageid = results[i].id;
-				player.call("client:garage:openmenu",[garageid]);
-			}		
-		}	
-		});		
-	}  
-	for(let i = 0; i < conf.sys_atms.length; i++) {
-		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(conf.atms_params[i]['posX']), parseFloat(conf.atms_params[i]['posY']), parseFloat(conf.atms_params[i]['posZ'])));
-			if(distance <= 5)
-			{
-				if (conf.atms_params[i]['usable'] == 0) {
-					mp.events.call("server:bank:konten",player,atmid);
-				} else {
-					player.notify("~r~Der ATM ist kaputt!");
-				}
+	});	
+	} 
+	gm.mysql.handle.query('SELECT * FROM garage WHERE 1=1', [], function (error, results, fields) {
+		console.log("Test: "+results.length)
+	for(let i = 0; i < results.length; i++) {
+		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].pedx), parseFloat(results[i].pedy), parseFloat(results[i].pedz),parseInt(results[i].id)));				
+		if(distance <= 1)
+		{
+			var garageid = results[i].id;
+			player.call("client:garage:openmenu",[garageid]);
+		}		
+	}	
+	});	
+
+	gm.mysql.handle.query('SELECT * FROM atms WHERE 1=1', [], function (error, results, fields) {
+		console.log("Test: "+results.length)
+	for(let i = 0; i < results.length; i++) {
+		let distance = mp.Vector3.Distance2D(player.position,new mp.Vector3(parseFloat(results[i].posX), parseFloat(results[i].posY), parseFloat(results[i].posZ),parseInt(results[i].id)));				
+		if(distance <= 1.5)
+		{
+			if (results[i].usable == 0) {
+				mp.events.call("server:bank:konten",player,results[i].id);
+			} else {
+				player.notify("~r~Der ATM ist kaputt!");
 			}
-		}  
+		}		
+	}	
+	});	  
 });
 var currentTarget = null;
 mp.events.add("server:faction:interaction", (player) => {
