@@ -77,29 +77,29 @@ mp.events.add("server:garage:parkout",(player,vehid,id) => {
 mp.events.add("server:garage:parkin", (player,id) => {
     gm.mysql.handle.query("SELECT * FROM garage WHERE id = ?",[id], function (err,res) {
         if (err) console.log("Error in Select garages: "+err);
-        const garage = new mp.Vector3(res[0].spawn1x, res[0].spawn1y, res[0].spawn1z);
-        console.log("Garage: "+garage)
-        if (getVehicleFromPosition(garage, 15) > 0) {            
-            player.notify("~r~No Vehicles in Range");
-        } else {            
-            const veh = getVehicleFromPosition(garage, 15)[0];
-            console.log("VEH: "+veh);
-            vehid = veh.getVariable(vehId);
-            console.log("VEH: "+vehid);
-            gm.mysql.handle.query("SELECT * FROM vehicles WHERE id = ?",[vehid],function (err1,res1) {
-                console.log("Error in Select Vehicles");
-                if (res[0].charId == player.data.charId) {
-                    console.log("VEH: "+vehid);
-                    veh.destroy();
-                    gm.mysql.handle.query("UPDATE vehicles SET parked = '1' WHERE id = ?",[vehid], function (err2,res2) {
-                        if (err2) console.log("Error in Update Vehicles: "+err2);
-                        player.notify("~g~You have parked in you Vehicle");
-                    });
-                }
-            });
-            
+        garage = res[0];
+        const pos = new mp.Vector3(garage.pedx, garage.pedy, garage.pedz);
+        const veh = getVehicleFromPosition(pos, 15)[0];
+
+        if (mp.vehicles.exists(veh)) {
+        if (veh === null) {
+            player.notify("~r~Kein Fahrzeug in der Einfahrt");
+            return;
         }
-    });
+        gm.mysql.handle.query("SELECT * FROM vehicles WHERE id = ?",[veh.getVariable("vehId")], function(err1,res1) {
+            if (err1) console.log("Error in Select Vehicles: "+err1);
+            if (res1[0].charId == player.data.charId) {                
+                gm.mysql.handle.query("UPDATE vehicles SET parked = '1' WHERE id = ?",[veh.getVariable("vehId")], function(err2,res2) {
+                    if (err2) console.log("Error in Update Vehicles: "+err2);
+                    veh.destroy();
+                });
+            } else {
+                player.notify("~r~Hier ist kein Fahrzeug von dir");
+            }
+        })
+        
+    }
+});
 });
 
 mp.events.add("server:lspd:parkin",(player,x,y,z) => {
