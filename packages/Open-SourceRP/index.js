@@ -53,12 +53,12 @@ function loadGarage()
             conf.garage_params[i]['pedZ'] = results[i].pedz;
             conf.garage_params[i]['pedR'] = results[i].pedr;
 
-            conf.garage_params[i] = mp.blips.new(50, new mp.Vector3(conf.garage_params[i]['pedX'],conf.garage_params[i]['pedY'],conf.garage_params[i]['pedZ']),
+           /* conf.garage_params[i] = mp.blips.new(50, new mp.Vector3(conf.garage_params[i]['pedX'],conf.garage_params[i]['pedY'],conf.garage_params[i]['pedZ']),
             {
-                name: conf.garage_params[i]['name'],
+                name: ""+conf.garage_params[i]['name'],
                 color: 0,
                 shortRange: true,
-            });
+            });*/
             conf.garage_params[i] = mp.markers.new(1,new mp.Vector3(conf.garage_params[i]['pedX'],conf.garage_params[i]['pedY'],conf.garage_params[i]['pedZ'],-0.979), 2, { color: [255,255,255,100],visible: true});
             
         }

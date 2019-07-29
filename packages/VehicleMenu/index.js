@@ -74,7 +74,7 @@ mp.events.add("server:vehiclemenu:motor", (player, vehicle) => {
           if (currentKeys.length > 0) {
             var check = false;
             currentKeys.forEach(function(key) {
-              if (parseInt(key.vehid) == parseInt(vehicleid) && key.active == "Y" || faction == player.data.faction) check = true;
+              if (parseInt(key.vehid) == parseInt(vehicleid) && key.active == "Y") check = true;
             });
             if (check == true) {
               if (vehicle.engine === true) {
@@ -116,7 +116,7 @@ mp.events.add("server:vehiclemenu:togglelock", (Player) => {
           if (currentKeys.length > 0) {
             var check = false;
             currentKeys.forEach(function(key) {
-              if (parseInt(key.vehid) == parseInt(vehicleid) && key.active == "Y" || faction == player.data.faction) check = true;
+              if (parseInt(key.vehid) == parseInt(vehicleid) && key.active == "Y") check = true;
             });
 
             if (check == true) {

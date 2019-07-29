@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-28 20:09:30
+Date: 2019-07-29 18:50:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -156,7 +156,7 @@ CREATE TABLE `characters` (
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '-81.8236', '40.2807', '71.9251', '273.714', '0', '72', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '0', '0', '1', '0', '489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
+INSERT INTO `characters` VALUES ('2', '2', '0', '0', '1', 'Anna', 'Klein', '161.719', '-1036.17', '29.2725', '272.472', '0', '90', '0', '0', '0', '6', 'LSPD', 'Standard-Uniform', '0', '0', '1', '0', '489', '0', '323548632', '{\"Gender\":1,\"Parents\":{\"Father\":0,\"Mother\":37,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":1,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[3,29,29,0,0,0,0,0,0]}', '44', '0', '11', '0', '1', '1', '2', '0', '16', '0', '0', '0', '12', '16', '7', '1', '5', '0', '0', '12', null);
 INSERT INTO `characters` VALUES ('3', '2', '0', '0', '1', 'Jack', 'Collins', '10.4857', '21.3888', '70.6414', '291.699', '0', '88', '0', '100', '100', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '0', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":14,\"Mother\":24,\"Similarity\":0.12,\"SkinSimilarity\":0.44},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `characters` VALUES ('9', '7', '0', '0', '1', 'test', 'test', '-0.0807889', '19.5883', '71.0562', '124.29', '0', '31', '0', '0', '0', '0', 'Civillian', 'Zivil', '0', '0', '0', '0', '500', '0', '0', '{\"Gender\":0,\"Parents\":{\"Father\":0,\"Mother\":21,\"Similarity\":0,\"SkinSimilarity\":0},\"Features\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"Appearance\":[{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1},{\"Value\":255,\"Opacity\":1}],\"Hair\":[0,0,0,0,0,0,0,0,0]}', '255', '0', '0', '0', '0', '0', '15', '0', '41', '0', '255', '0', '6', '1', '0', '1', '0', '0', '0', '0', '2134165');
 
@@ -196,6 +196,36 @@ CREATE TABLE `faction` (
 -- Records of faction
 -- ----------------------------
 INSERT INTO `faction` VALUES ('1', 'LSPD', '440', '-976', '31', '458', '-993', '31', '452', '-980', '31', '442', '-979', '31', '448', '-973', '31', '441', '-1000', '31', '452', '-997', '26', '0');
+
+-- ----------------------------
+-- Table structure for `farming`
+-- ----------------------------
+DROP TABLE IF EXISTS `farming`;
+CREATE TABLE `farming` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `farmX` float NOT NULL DEFAULT '0',
+  `farmY` float NOT NULL DEFAULT '0',
+  `farmZ` float NOT NULL DEFAULT '0',
+  `processorsX` float NOT NULL DEFAULT '0',
+  `processorsY` float NOT NULL DEFAULT '0',
+  `processorsZ` float NOT NULL DEFAULT '0',
+  `processorsR` float NOT NULL DEFAULT '0',
+  `processorsPed` varchar(50) NOT NULL DEFAULT '0',
+  `processorsneedItem` int(11) NOT NULL DEFAULT '0',
+  `processorsgiveItem` int(11) NOT NULL DEFAULT '0',
+  `sellX` float NOT NULL DEFAULT '0',
+  `sellY` float NOT NULL DEFAULT '0',
+  `sellZ` float NOT NULL DEFAULT '0',
+  `sellR` float NOT NULL DEFAULT '0',
+  `sellPed` varchar(50) NOT NULL DEFAULT '0',
+  `sellneedItem` int(11) NOT NULL DEFAULT '0',
+  `sellPrice` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of farming
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `garage`

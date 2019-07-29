@@ -103,11 +103,10 @@ mp.events.add("client:vehiclemenu:carmenu", (locked,seat, Keys, vehicleid,engine
             main_ui.AddItem(new UIMenuItem("Gurt ablegen", ""));
     }
     vehiclekey.forEach(key => {
-        main_ui.AddItem(new UIMenuItem("Fahrzeug aufschließen", ""));
         if (locked == false || locked == false && key.vehid == vehicleid && key.active == "Y") {
             main_ui.AddItem(new UIMenuItem("Fahrzeug abschließen", ""));            
         }
-        if (locked == true || locked == true && key.vehid == vehicleid && key.active == "Y" || faction == userfaction) {
+        if (locked == true || locked == true && key.vehid == vehicleid && key.active == "Y") {
             main_ui.AddItem(new UIMenuItem("Fahrzeug aufschließen", ""));
         }
     });
@@ -274,24 +273,4 @@ mp.events.add("client:vehiclemenu:seatbeltoff", function() {
         player.setConfigFlag(32, true);
         mp.game.graphics.notify("Sie haben sich ~r~abgeschnallt");
     };
-});
-
-// Notifications löschen, bevor Motor Start Notifys Serverside ausgegeben werden.
-mp.events.add("client:vehiclemenu:clearNotify", function() {
-    for (i = 0; i <= 5; i++) {
-        mp.game.ui.removeNotification(i);
-    }
-});
-
-
-mp.events.add("playerEnterVehicle", function(vehicle, seat){
-    let minimap = null;
-    if( vehicle.getVariable("isPolice") == "true") vehicle.setEnginePowerMultiplier(20); 
-    vehicle.defaultEngineBehaviour = false;     
-    mp.game.ui.displayRadar(true);
-    MinimapShow = true; 
-});
-mp.events.add("playerLeaveVehicle", () => {
-    mp.game.ui.displayRadar(false);
-    MinimapShow = false;
 });
