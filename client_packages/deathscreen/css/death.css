@@ -13,7 +13,6 @@
 }
 
 body{
-    background:#131313;
     color:#E3E3E3;
     font-family:sans-serif;
   }
@@ -103,7 +102,7 @@ body {
 .loading-page .counter p {
   font-size: 15.2px;
   font-weight: 400;
-  color: #f60d54;
+  color: #ffffff;
   text-transform: uppercase;
   font-family: 'OSL';
 }
@@ -115,7 +114,7 @@ body {
   font-family: 'OSL';
 }
 .loading-page .counter hr {
-  background: #f60d54;
+  background: #ffffff;
   border: none;
   height: 1px;
 }
@@ -131,5 +130,5 @@ body {
 .loading-page .counter .color {
   width: 0px;
   overflow: hidden;
-  color: #f60d54;
+  color: #ffffff;
 }
