@@ -2,6 +2,7 @@ require("login.js");
 require("nativeui");
 require("other/keys.js"); // Key Binds
 require("other/index.js");
+require("other/finger.js");
 require("other/noclip"); // No Clip
 require("other/betternotifs");
 require("charchooser")
