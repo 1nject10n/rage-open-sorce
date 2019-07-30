@@ -73,6 +73,16 @@ mp.events.add("LoadShopMarkers", (x,y,z,r,ped) => {
 	let Ped = mp.peds.new(ped, new mp.Vector3( x, y, z), r, 0);
 });
 
+mp.events.add("LoadProcessMarkers", (x,y,z,r,ped) => {	
+	position = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	let Ped = mp.peds.new(ped, new mp.Vector3( x, y, z), r, 0);
+});
+
+mp.events.add("LoadSellMarkers", (x,y,z,r,ped) => {	
+	position = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	let Ped = mp.peds.new(ped, new mp.Vector3( x, y, z), r, 0);
+});
+
 mp.events.add("LoadFactionParkingMarkers", (x,y,z) => {
 	
 	markerthree = mp.colshapes.newSphere(x,y,z-0.979, 2);

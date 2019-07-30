@@ -92,6 +92,23 @@ mp.events.add("PushE", (player) => {
 			}
 		}
 	});
+	gm.mysql.handle.query("SELECT * FROM farming WHERE 1=1",[],function(err,res) {
+		if (err) console.log("Error in Select Shops: "+err);
+		for(let i = 0; i < res.length; i++) {
+			let distance = mp.Vector3.Distance2D(player.position, new mp.Vector3(parseFloat(res[i].farmX), parseFloat(res[i].farmY), parseFloat(res[i].farmZ), parseInt(res[i].id), parseInt(res[i].farmItem)));
+			let distance2 = mp.Vector3.Distance2D(player.position, new mp.Vector3(parseFloat(res[i].processorsX), parseFloat(res[i].processorsY), parseFloat(res[i].processorsZ), parseInt(res[i].id), parseInt(res[i].processorsneedItem), parseInt(res[i].processorsgiveItem)));
+			let distance3 = mp.Vector3.Distance2D(player.position, new mp.Vector3(parseFloat(res[i].sellX), parseFloat(res[i].sellY), parseFloat(res[i].sellZ), parseInt(res[i].id), parseInt(res[i].sellneedItem), parseInt(res[i].sellPrice)));			
+			if (distance <= 30) {
+				mp.events.call("server:farming:farm",player,res[i].id,res[i].farmItem);
+			}
+			if (distance2 <= 5) {
+				mp.events.call("server:farming:processing",player,res[i].id,res[i].processorsneedItem,res[i].processorsgiveItem);
+			}
+			if (distance3 <= 5) {
+				mp.events.call("server:farming:selling",player,res[i].id,res[i].sellneedItem,res[i].sellPrice);
+			}
+		}
+	});
 });
 var currentTarget = null;
 mp.events.add("server:faction:interaction", (player) => {

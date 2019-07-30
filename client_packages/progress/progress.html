@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background-color: transparent;
+        font-family: Helvetica, sans-serif;
+    }
+    #progress-bar-wrapper {
+        border: 1px solid #cccccc;
+        background-color: #eeeeee;
+    }
+    span {
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        text-align: center;
+        margin-top: 5px;
+        font-size: 1.1rem;
+        color: #000000;
+        font-weight: bold;
+    }
+    #bar {
+        width: 0%;
+        height: 30px;
+        background-color: #4CAF00;
+    }
+</style>
+
+<body>
+
+    <div style="padding: 5px">
+        <div id="progress-bar-wrapper">
+            <span id="text-content"></span>
+            <div id="bar"></div>
+        </div>
+    </div>
+
+    <script>
+        function runBar(s, task, direction, evt, params) {
+            var elem = document.getElementById('bar');
+            document.getElementById('text-content').innerHTML = task;
+            var width = 0;
+            var interval = setInterval(frame, s*10);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    mp.trigger('progress:end', direction, evt, params);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
