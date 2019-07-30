@@ -1,4 +1,7 @@
 mp.events.add("server:animations:numpad0", (player) => {
+    if (player.vehicle)
+        return;
+    else
     player.stopAnimation();
     player.data.ergeben = 0;
 });
