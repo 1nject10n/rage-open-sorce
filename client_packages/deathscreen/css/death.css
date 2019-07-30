@@ -13,6 +13,7 @@
 }
 
 body{
+    background:#131313;
     color:#E3E3E3;
     font-family:sans-serif;
   }
@@ -22,7 +23,6 @@ body{
     max-width: 700px;
     margin: 0 auto;
     padding: 0;
-    padding-top: 220px;
     position: absolute;
     top: 1vw;
     left: 35vw;
@@ -103,7 +103,7 @@ body {
 .loading-page .counter p {
   font-size: 15.2px;
   font-weight: 400;
-  color: #ffffff;
+  color: #f60d54;
   text-transform: uppercase;
   font-family: 'OSL';
 }
@@ -115,7 +115,7 @@ body {
   font-family: 'OSL';
 }
 .loading-page .counter hr {
-  background: #ffffff;
+  background: #f60d54;
   border: none;
   height: 1px;
 }
@@ -131,5 +131,5 @@ body {
 .loading-page .counter .color {
   width: 0px;
   overflow: hidden;
-  color: #ffffff;
+  color: #f60d54;
 }

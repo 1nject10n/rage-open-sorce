@@ -9,9 +9,9 @@ module.exports =
         this.handle = mysql.createConnection({
             
             host: "localhost",
-            user: "state",
-            password: "",
-            database: "state",
+            user: "opensource",
+            password: "opensource",
+            database: "opensource",
             connectionLimit: 150
 
         });

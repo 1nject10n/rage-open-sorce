@@ -3,8 +3,6 @@ require('./lspd/index.js');
 mp.events.add("server:faction:loadmarker", (player) => {
 	gm.mysql.handle.query('SELECT * FROM faction WHERE name = ?', [player.data.faction], function (error, results, fields) {
 		for(let i = 0; i < results.length; i++) {
-			console.log("Test: "+results[i].name);
-			console.log("Test; "+player.data.faction)
 			if(player.data.faction == results[i].name)
 			{
 			player.call("LoadFactionDutyMarkers",[results[i].dutyX,results[i].dutyY,results[i].dutyZ]);

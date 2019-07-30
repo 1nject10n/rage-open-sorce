@@ -27,6 +27,7 @@ require('clothingshops');
 require('Garage');
 require('Shop');
 require('progress');
+require('Housing')
 
 mp.gui.chat.show(true);
 mp.gui.chat.activate(false);

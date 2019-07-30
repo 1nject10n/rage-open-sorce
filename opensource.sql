@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-30 02:30:56
+Date: 2019-07-30 06:03:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `accounts` (
   `banned` int(11) NOT NULL DEFAULT '0',
   `bannedDay` varchar(255) NOT NULL DEFAULT 'none',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accounts
@@ -66,12 +66,13 @@ CREATE TABLE `bank_konten` (
   `kontonummer` varchar(50) DEFAULT NULL,
   `beschreibung` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bank_konten
 -- ----------------------------
-INSERT INTO `bank_konten` VALUES ('1', '2', '30000.00', '14654565', 'Anna Klein');
+INSERT INTO `bank_konten` VALUES ('1', '2', '55000.00', '14654565', 'Anna Klein');
+INSERT INTO `bank_konten` VALUES ('2', '10', '5000.00', '465465465', 'Marcel Maj');
 
 -- ----------------------------
 -- Table structure for `blips`
@@ -92,7 +93,7 @@ CREATE TABLE `blips` (
 -- Records of blips
 -- ----------------------------
 INSERT INTO `blips` VALUES ('1', '-85.276', '38.127', 'License Shop', '1', '1', '1');
-INSERT INTO `blips` VALUES ('2', '272', '2857', 'Stone Mine', '1', '464', '1');
+INSERT INTO `blips` VALUES ('2', '2727', '2857', 'Stone Mine', '1', '464', '1');
 INSERT INTO `blips` VALUES ('3', '2391', '3308', 'Stone Proccessor', '1', '365', '1');
 INSERT INTO `blips` VALUES ('4', '2341', '3126', 'Cement Selling', '1', '628', '1');
 
@@ -150,7 +151,7 @@ CREATE TABLE `characters` (
   `arm` int(11) DEFAULT '0',
   `bday` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of characters
@@ -254,6 +255,29 @@ INSERT INTO `garage` VALUES ('1', 'test', '162', '-1037', '29', '266', '165', '-
 INSERT INTO `garage` VALUES ('2', null, '170', '-1039', '29', '254', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
+-- Table structure for `housing`
+-- ----------------------------
+DROP TABLE IF EXISTS `housing`;
+CREATE TABLE `housing` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `outX` float NOT NULL DEFAULT '0',
+  `outY` float NOT NULL DEFAULT '0',
+  `outZ` float NOT NULL DEFAULT '0',
+  `inX` float NOT NULL DEFAULT '0',
+  `inY` float NOT NULL DEFAULT '0',
+  `inZ` float NOT NULL DEFAULT '0',
+  `price` float NOT NULL DEFAULT '0',
+  `sellprice` float NOT NULL DEFAULT '0',
+  `maxBuy` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of housing
+-- ----------------------------
+INSERT INTO `housing` VALUES ('1', '228.426', '765.894', '204.78', '-1288', '440.748', '97.6946', '5000', '4500', '1');
+
+-- ----------------------------
 -- Table structure for `items`
 -- ----------------------------
 DROP TABLE IF EXISTS `items`;
@@ -270,8 +294,8 @@ CREATE TABLE `items` (
 -- ----------------------------
 -- Records of items
 -- ----------------------------
-INSERT INTO `items` VALUES ('1', 'Wasser', 'Y', 'drink', '15', '1');
-INSERT INTO `items` VALUES ('2', 'Belegtes Brötchen', 'Y', 'food', '15', '1');
+INSERT INTO `items` VALUES ('1', 'Wasser', 'Y', 'drink', '50', '1');
+INSERT INTO `items` VALUES ('2', 'Belegtes Brötchen', 'Y', 'food', '50', '1');
 INSERT INTO `items` VALUES ('3', 'Tasche', 'Y', 'bag', '0', '1');
 INSERT INTO `items` VALUES ('4', 'Tasche ausgepackt', 'Y', 'bag', '0', '1');
 INSERT INTO `items` VALUES ('5', 'Stone', 'N', 'farmin', '0', '1');
@@ -410,11 +434,31 @@ INSERT INTO `shortcuts` VALUES ('5', '3', null, null, null, null, null, null, nu
 INSERT INTO `shortcuts` VALUES ('6', '8', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('7', '9', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('8', '9', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
-INSERT INTO `shortcuts` VALUES ('9', '10', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', '\"missheist_jewel\"', '\"manageress_kneel_loop\"', '1', '33', 'Auf die Knie', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
+INSERT INTO `shortcuts` VALUES ('9', '10', '\"mini@strip_club@idles@bouncer@idle_a\"', '\"idle_a\"', '1', '49', 'Security', '\"amb@world_human_leaning@male@wall@back@foot_up@base\"', '\"base\"', '1', '35', 'Anlehnen', '\"anim@heists@fleeca_bank@ig_7_jetski_owner\"', '\"owner_idle\"', '1', '33', 'Sitzen (Männl.)', '\"missheist_jewel\"', '\"manageress_kneel_loop\"', '1', '33', 'Auf die Knie', '\"missbigscore1switch_trevor_piss\"', '\"piss_loop\"', '1', '33', 'Pinkeln', '\"oddjobs@assassinate@multi@yachttarget@lapdance\"', '\"yacht_ld_f\"', '1', '33', 'Strip 1', '\"switch@trevor@mocks_lapdance\"', '\"001443_01_trvs_28_exit_stripper\"', '1', '33', 'Po wackeln 2', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('10', '13', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('11', '14', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('12', '16', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 INSERT INTO `shortcuts` VALUES ('13', '11', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
+
+-- ----------------------------
+-- Table structure for `user_houses`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_houses`;
+CREATE TABLE `user_houses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseId` int(11) NOT NULL DEFAULT '0',
+  `charId` int(11) NOT NULL DEFAULT '0',
+  `dimension` int(11) NOT NULL DEFAULT '0',
+  `locked` int(11) NOT NULL DEFAULT '0',
+  `pin` int(11) DEFAULT NULL,
+  `sign` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of user_houses
+-- ----------------------------
+INSERT INTO `user_houses` VALUES ('17', '1', '2', '0', '0', null, 'Anna Klein');
 
 -- ----------------------------
 -- Table structure for `user_items`
@@ -426,14 +470,15 @@ CREATE TABLE `user_items` (
   `itemId` int(11) NOT NULL DEFAULT '0',
   `amount` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user_items
 -- ----------------------------
-INSERT INTO `user_items` VALUES ('11', '2', '1', '19');
-INSERT INTO `user_items` VALUES ('12', '2', '2', '16');
+INSERT INTO `user_items` VALUES ('11', '2', '1', '14');
+INSERT INTO `user_items` VALUES ('12', '2', '2', '14');
 INSERT INTO `user_items` VALUES ('13', '14', '1', '1');
+INSERT INTO `user_items` VALUES ('25', '10', '6', '3');
 
 -- ----------------------------
 -- Table structure for `vehiclekeys`

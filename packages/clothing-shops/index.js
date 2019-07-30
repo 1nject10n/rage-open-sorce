@@ -106,10 +106,9 @@ mp.events.add("buyClothingItem", (player, type, slot, texture, drawable) => {
 // Commands
 mp.events.add("PushE", (player) => {
     if (typeof player.clothingShopType !== "string") {
-        player.outputChatBox("You're not in a clothing shop marker.");
+        //player.outputChatBox("You're not in a clothing shop marker.");
         return;
     }
-
     const key = allowedModels[player.model];
     if (typeof key !== "string") {
         player.outputChatBox("Your model is not allowed to use clothing shops.");

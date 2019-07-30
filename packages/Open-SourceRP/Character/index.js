@@ -32,7 +32,7 @@ mp.events.add("createCharacter", (player, data) => {
 
         gm.mysql.handle.query("UPDATE characters SET data =? WHERE id='" + player.data.charId + "'", [data], function (err, res) {
             if (err) throw err;
-        })
+        });
         player.dimension = 0;
         player.alpha = 255;
         player.call("stopCreator");

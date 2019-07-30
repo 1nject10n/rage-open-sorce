@@ -3,6 +3,9 @@ let markertwo;
 let markerthree;
 let markerfour;
 let markerfive;
+let markersix;
+let markerseven;
+
 
 mp.events.add("client:faction:delmarkers", () => {
 	markerone.destroy();
@@ -63,8 +66,29 @@ mp.events.add("LoadFactionChiefMarkers", (x,y,z) => {
 		dimension: 0 
 	});
 });
+
+mp.events.add("LoadHousingInMarkers", (x,y,z) => {
+	markerseven = mp.markers.new(27, new mp.Vector3(x,y,z-0.97), 0.5, 
+	{ 
+		direction: new mp.Vector3(x,y,z), 
+		rotation: 0, 
+		color: [ 0, 0, 160, 255],
+		visible: true,
+		dimension: -99
+	});
+});
+mp.events.add("LoadHousingOutMarkers", (x,y,z) => {
+	markersix = mp.markers.new(27, new mp.Vector3(x,y,z-0.97), 0.5, 
+	{ 
+		direction: new mp.Vector3(x,y,z), 
+		rotation: 0, 
+		color: [ 0, 0, 160, 255],
+		visible: true,
+		dimension: -99
+	});
+});
 mp.events.add("LoadGaragenMarkers", (x,y,z) => {	
-	markerthree = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	markerseven = mp.colshapes.newSphere(x,y,z-0.979, 2);
 	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
 });
 
