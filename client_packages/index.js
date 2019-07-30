@@ -13,6 +13,7 @@ require("vehKeys");
 require("VehicleMenu");
 require("shortcut");
 require("deathscreen");
+require("playerlocation");
 require("Inventory");
 require("scaleform_messages");
 require("factions/markers");
