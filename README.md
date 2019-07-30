@@ -5,6 +5,14 @@ Codeowner:
 
 SnillocTV
 
+Developers:
+SnillocTV,
+
+Craftklinik,
+
+Хроніка
+
+
 Codingstart: 20.07.2019
 
 Everyone can use this Code. This Code is Open Source and i update this Code. 
@@ -31,8 +39,6 @@ https://rage.mp/files/file/26-scaleform-messages/
 
 
 - CommanderDonkey
-
-https://rage.mp/files/file/63-death-screen-with-loading-only-html-css-design/
 
 https://rage.mp/files/file/64-ui-only-html-css-design/
 
@@ -74,7 +80,21 @@ PlayerMenu,
 
 Licensesystem,
 
-Adminsystem
+Adminsystem,
+
+Dynamic Farmingsystem,
+
+Dynamic Housing System,
+
+Garages,
+
+Shopsystem,
+
+Itemsystem,
+
+Fingerpointing
+
+
 
 
 
