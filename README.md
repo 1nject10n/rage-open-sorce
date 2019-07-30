@@ -92,7 +92,9 @@ Shopsystem,
 
 Itemsystem,
 
-Fingerpointing
+Fingerpointing,
+
+Teleporter
 
 
 
