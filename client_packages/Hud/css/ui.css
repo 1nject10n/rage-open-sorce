@@ -62,7 +62,7 @@ body {
 #top {
 	right: 0vw;
 	position: absolute;
-	top: 36vw;
+	top: 42vw;
 	-webkit-animation: fadein 2s;
 	-moz-animation: fadein 2s;
 	-ms-animation: fadein 2s;
@@ -73,7 +73,7 @@ body {
 #mid {
 	right: 0vw;
     position: absolute;
-    top: 36vw;
+    top: 42vw;
 	-webkit-animation: fadein 2.2s;
     -moz-animation: fadein 2.2s;
     -ms-animation: fadein 2.2s;
@@ -84,7 +84,7 @@ body {
 #bot {
 	right: 0vw;
     position: absolute;
-    top: 36vw;
+    top: 42vw;
 	-webkit-animation: fadein 2.4s;
     -moz-animation: fadein 2.4s;
     -ms-animation: fadein 2.4s;
@@ -262,7 +262,7 @@ html,body {
 #money {
 		right: 0vw;
     position: absolute;
-    top: 36vw;
+    top: 42vw;
 	-webkit-animation: fadein 2.6s;
     -moz-animation: fadein 2.6s;
     -ms-animation: fadein 2.6s;
