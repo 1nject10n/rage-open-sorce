@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-30 06:03:27
+Date: 2019-07-30 16:50:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -151,7 +151,7 @@ CREATE TABLE `characters` (
   `arm` int(11) DEFAULT '0',
   `bday` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of characters
@@ -441,6 +441,28 @@ INSERT INTO `shortcuts` VALUES ('12', '16', null, null, null, null, 'Nicht Beleg
 INSERT INTO `shortcuts` VALUES ('13', '11', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', 'Nicht Belegt', 'Nicht Belegt', null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt', null, null, null, null, 'Nicht Belegt');
 
 -- ----------------------------
+-- Table structure for `teleporter`
+-- ----------------------------
+DROP TABLE IF EXISTS `teleporter`;
+CREATE TABLE `teleporter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pos1X` float NOT NULL DEFAULT '0',
+  `pos1Y` float NOT NULL DEFAULT '0',
+  `pos1Z` float NOT NULL DEFAULT '0',
+  `pos1D` int(11) NOT NULL DEFAULT '0',
+  `pos2X` float NOT NULL DEFAULT '0',
+  `pos2Y` float NOT NULL DEFAULT '0',
+  `pos2Z` float NOT NULL DEFAULT '0',
+  `pos2D` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of teleporter
+-- ----------------------------
+INSERT INTO `teleporter` VALUES ('1', '219.641', '781.863', '204.674', '0', '219', '772', '204', '5');
+
+-- ----------------------------
 -- Table structure for `user_houses`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_houses`;
@@ -475,8 +497,8 @@ CREATE TABLE `user_items` (
 -- ----------------------------
 -- Records of user_items
 -- ----------------------------
-INSERT INTO `user_items` VALUES ('11', '2', '1', '14');
-INSERT INTO `user_items` VALUES ('12', '2', '2', '14');
+INSERT INTO `user_items` VALUES ('11', '2', '1', '11');
+INSERT INTO `user_items` VALUES ('12', '2', '2', '11');
 INSERT INTO `user_items` VALUES ('13', '14', '1', '1');
 INSERT INTO `user_items` VALUES ('25', '10', '6', '3');
 

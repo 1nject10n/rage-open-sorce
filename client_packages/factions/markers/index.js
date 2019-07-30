@@ -92,6 +92,17 @@ mp.events.add("LoadGaragenMarkers", (x,y,z) => {
 	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
 });
 
+mp.events.add("LoadTeleportMarkers", (x,y,z) => {	
+	markerseven = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
+});
+
+mp.events.add("LoadTeleport1Markers", (x,y,z) => {	
+	markerseven = mp.colshapes.newSphere(x,y,z-0.979, 2);
+	var markercol = mp.markers.new(1,new mp.Vector3(x,y,z-0.979), 2, { color: [255,255,255,100],visible: true});
+});
+
+
 mp.events.add("LoadShopMarkers", (x,y,z,r,ped) => {	
 	position = mp.colshapes.newSphere(x,y,z-0.979, 2);
 	let Ped = mp.peds.new(ped, new mp.Vector3( x, y, z), r, 0);
