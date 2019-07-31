@@ -9,13 +9,13 @@ mp.events.add("server:Keybind:KeyE", (player) => {
 });
 
 mp.events.add("server:vehKeys:openKeys", (player) => {
-    gm.mysql.handle.query("SELECT vehiclekeys.*, vehicles.numberplate from vehiclekeys LEFT JOIN vehicles ON vehiclekeys.vehID = vehicles.id WHERE vehiclekeys.keyOwner = ?", [player.data.charId], function (err, res) {
+    gm.mysql.handle.query("SELECT vehiclekeys.*, vehicles.numberplate, vehicles.model from vehiclekeys LEFT JOIN vehicles ON vehiclekeys.vehID = vehicles.id WHERE vehiclekeys.keyOwner = ?", [player.data.charId], function (err, res) {
         if (err) console.log(err);
         if (res.length > 0) {
             var i = 1;
             let KeyList = [];
             res.forEach(function(veh) {
-                let obj = {"kennzeichen": String(veh.numberplate), "amount": String(veh.amount), "id": String(veh.id)};
+                let obj = {"kennzeichen": String(veh.numberplate), "amount": String(veh.amount), "id": String(veh.id), "name": String(veh.model)};
                 KeyList.push(obj);
 
                 if (parseInt(i) == parseInt(res.length)) {

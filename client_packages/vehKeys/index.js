@@ -37,7 +37,7 @@ function drawMenu(vehJSON){
   if (vehJSON != "none"){
     vehList = JSON.parse(vehJSON);
     vehList.forEach(keys => {
-        let newItem = new UIMenuItem("" + keys.kennzeichen, ""+keys.id);
+        let newItem = new UIMenuItem(""+keys.name+" " + keys.kennzeichen, ""+keys.id);
         ui_List.AddItem(newItem);
         newItem.SetRightLabel(""+" x"+keys.amount);
     });
