@@ -61,7 +61,7 @@ mp.events.add("server:carshop:buy",(player, id, name) => {
                                             }); 
                                             gm.mysql.handle.query("SELECT * FROM vehicles WHERE charID = ? ORDER BY id DESC LIMIT 1;",[player.data.charId],function(err5,res5) {
                                                 if (err5) console.log("Error in Select last ID: "+err5);                                                
-                                                gm.mysql.handle.query("INSERT INTO vehicleKeys (vehID, keyOwner, amout, isActive) VALUES (?,?,'2','Y')", [res5[0].id, player.data.charId], function(err6, res6) {
+                                                gm.mysql.handle.query("INSERT INTO vehicleKeys (vehID, keyOwner, amount, isActive) VALUES (?,?,'2','Y')", [res5[0].id, player.data.charId], function(err6, res6) {
                                                     if (err3) console.log("Error in Insert Vehiclekeys: "+err3);
                                                     var currentKeys = player.getVariable("currentKeys");
                                                     currentKeys = JSON.parse(currentKeys);
