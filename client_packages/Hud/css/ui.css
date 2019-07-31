@@ -12,16 +12,6 @@
             user-select: none;
 }
 
-@font-face {
-	font-family: 'FA';
-	src: url('../font/FA.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'MAKI';
-	src: url('../font/MAKI.ttf') format('truetype');
-}
-
 @keyframes fadein {
     from { opacity: 0; right: 9vw;}
     to   { opacity: 1; right: 0vw;}
@@ -48,7 +38,7 @@
 }
 
 * {
-	font-family:'OSL';
+	font-family:'Tahoma';
 	margin: 0;
 	padding: 0;
 }
@@ -62,7 +52,7 @@ body {
 #top {
 	right: 0vw;
 	position: absolute;
-	top: 42vw;
+	top: 0vw;
 	-webkit-animation: fadein 2s;
 	-moz-animation: fadein 2s;
 	-ms-animation: fadein 2s;
@@ -73,7 +63,7 @@ body {
 #mid {
 	right: 0vw;
     position: absolute;
-    top: 42vw;
+    top: 0vw;
 	-webkit-animation: fadein 2.2s;
     -moz-animation: fadein 2.2s;
     -ms-animation: fadein 2.2s;
@@ -84,7 +74,7 @@ body {
 #bot {
 	right: 0vw;
     position: absolute;
-    top: 42vw;
+    top: 0vw;
 	-webkit-animation: fadein 2.4s;
     -moz-animation: fadein 2.4s;
     -ms-animation: fadein 2.4s;
@@ -105,13 +95,10 @@ html,body {
 #bar1 {
 	width: 8vw;
 	height: 0.8vw;
-	-webkit-transform: skew(20deg);
-	-moz-transform: skew(20deg);
-	-o-transform: skew(20deg);
-	background: rgba(0, 0, 0, 0.70);
+	background: rgba(0, 0, 0, 0.60);
 	position: absolute;
 	padding: 0.5vw;
-	right:1.4vw;
+	right:0.7vw;
 	top:0.7vw;
 }
 
@@ -122,28 +109,28 @@ html,body {
 	height: 2.6vw;
 	position: absolute;
 	padding: vw;
-	right:8vw;
+	right:7.3vw;
 	top:0.8vw;
 }
 
 #text1 {
 	font-size: 1.0vw;
-	color: rgba(255, 138, 138, 1);
+	color: rgba(255, 102, 102, 1);
 	width: 1.8vw;
 	height: 1.2vw;
 	position: absolute;
-	right:6.2vw;
-	top:0.9vw;
+	right:5.3vw;
+	top:1.0vw;
 	z-index: 2;
 }
 
 #line1 {
 	width: 6vw;
 	height: 0.4vw;
-	border-radius: 20px 0px;
+
 	background: rgba(255, 255, 255, 1);
 	position: absolute;
-	right:2.2vw;
+	right:1.5vw;
 	top:1.4vw;
 	z-index: 0;
 }
@@ -151,13 +138,10 @@ html,body {
 #bar2 {
 	width: 8vw;
 	height: 0.8vw;
-	-webkit-transform: skew(-20deg);
-	-moz-transform: skew(-20deg);
-	-o-transform: skew(-20deg);
-	background: rgba(0, 0, 0, 0.70);
+	background: rgba(0, 0, 0, 0.60);
 	position: absolute;
 	padding: 0.5vw;
-	right:1.4vw;
+	right:0.7vw;
 	top:2.6vw;
 }
 
@@ -168,17 +152,16 @@ html,body {
 	height: 2.6vw;
 	position: absolute;
 	padding: vw;
-	right:8vw;
+	right:7.3vw;
 	top:2.8vw;
 }
 
 #line2 {
 	width: 6vw;
 	height: 0.4vw;
-	border-radius: 20px 0px;
 	background: rgba(255, 255, 255, 1);
 	position: absolute;
-	right:2.2vw;
+	right:1.5vw;
 	top:3.3vw;
 	z-index: 0;
 }
@@ -186,8 +169,7 @@ html,body {
 #subline2 {
 	width: 30%;
 	height: 0.4vw;
-	border-radius: 20px 0px;
-	background: rgba(41, 128, 185, 1);
+	background: rgba(102, 153, 255, 1);
 	position: absolute;
 	z-index: 1;
 }
@@ -199,20 +181,17 @@ html,body {
 	height: 1.2vw;
 	position: absolute;
 	padding: vw;
-	right:8.5vw;
+	right:7.6vw;
 	bottom:1.5vw;
 }
 
 #bar3 {
 	width: 8vw;
 	height: 0.8vw;
-	-webkit-transform: skew(20deg);
-	-moz-transform: skew(20deg);
-	-o-transform: skew(20deg);
-	background: rgba(0, 0, 0, 0.70);
+	background: rgba(0, 0, 0, 0.60);
 	position: absolute;
 	padding: 0.5vw;
-	right:1.4vw;
+	right:0.7vw;
 	top:4.5vw;
 }
 
@@ -223,17 +202,16 @@ html,body {
 	height: 2.6vw;
 	position: absolute;
 	padding: vw;
-	right:8vw;
-	top:4.6vw;
+	right:7.3vw;
+	top:4.8vw;
 }
 
 #line3 {
 	width: 6vw;
 	height: 0.4vw;
-	border-radius: 20px 0px;
 	background: rgba(255, 255, 255, 1);
 	position: absolute;
-	right:2.2vw;
+	right:1.5vw;
 	top:5.2vw;
 	z-index: 0;
 }
@@ -241,8 +219,7 @@ html,body {
 #subline3 {
 	width: 50%;
 	height: 0.4vw;
-	border-radius: 20px 0px;
-	background: rgba(22, 160, 133, 1);
+	background: rgba(255, 204, 102, 1);
 	position: absolute;
 	z-index: 1;
 }
@@ -255,14 +232,14 @@ html,body {
 	height: 1.2vw;
 	position: absolute;
 	padding: vw;
-	right:13.2vw;
+	right:12.3vw;
 	bottom:1.5vw;
 }
 
 #money {
 		right: 0vw;
     position: absolute;
-    top: 42vw;
+    top: 0vw;
 	-webkit-animation: fadein 2.6s;
     -moz-animation: fadein 2.6s;
     -ms-animation: fadein 2.6s;
@@ -273,13 +250,10 @@ html,body {
 #bar4 {
     width: 8vw;
     height: 0.8vw;
-    -webkit-transform: skew(-20deg);
-    -moz-transform: skew(-20deg);
-    -o-transform: skew(-20deg);
-    background: rgba(0, 0, 0, 0.70);
+    background: rgba(0, 0, 0, 0.60);
     position: absolute;
     padding: 0.5vw;
-    right: 1.4vw;
+    right: 0.7vw;
     top: 6.4vw;
 }
 
@@ -290,19 +264,19 @@ html,body {
 	height: 2.6vw;
 	position: absolute;
 	padding: vw;
-	right:8.1vw;
-	top: 6.5vw;
+	right:7.4vw;
+	top: 6.7vw;
 }
 
 #text4 {
-	font-size: 1.2vw;
+	font-size: 1.0vw;
     color: rgb(255, 255, 255);
     width: 1.8vw;
     height: 1.2vw;
     position: absolute;
     padding: vw;
-    right: 5.6vw;
-    bottom: -7.6vw;
+    right: 5.5vw;
+    bottom: -7.9vw;
 }
 
 #gas {
@@ -319,9 +293,6 @@ html,body {
 #bar5 {
 	width: 8vw;
 	height: 0.8vw;
-	-webkit-transform: skew(20deg);
-	-moz-transform: skew(20deg);
-	-o-transform: skew(20deg);
 	background: rgba(0, 0, 0, 0.70);
 	position: absolute;
 	padding: 0.5vw;
@@ -345,7 +316,6 @@ html,body {
 #line5 {
 	width: 6vw;
 	height: 0.4vw;
-	border-radius: 20px 0px;
 	background: rgba(255, 255, 255, 1);
 	position: absolute;
 	right:2.2vw;
@@ -356,7 +326,6 @@ html,body {
 #subline5 {
 	width: 30%;
 	height: 0.4vw;
-	border-radius: 20px 0px;
 	background: rgb(193, 10, 10);
 	position: absolute;
 	z-index: 1;
@@ -387,9 +356,6 @@ html,body {
 #bar6 {
     width: 8vw;
     height: 0.8vw;
-    -webkit-transform: skew(-20deg);
-    -moz-transform: skew(-20deg);
-    -o-transform: skew(-20deg);
     background: rgba(0, 0, 0, 0.70);
     position: absolute;
     padding: 0.5vw;
