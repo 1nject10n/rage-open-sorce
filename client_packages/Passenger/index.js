@@ -17,7 +17,7 @@ mp.keys.bind(
     () => {
         if (mp.players.local.vehicle === null) {
             let playerPos = mp.players.local.position;
-            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 30, 0, 70);
+            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 7, 0, 7);
             let vehicle = mp.vehicles.atHandle(vehHandle);
 
             if (vehicle !== null) {
