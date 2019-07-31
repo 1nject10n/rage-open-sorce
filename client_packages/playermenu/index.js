@@ -29,47 +29,47 @@ const MenuPoint = new Point(ScreenRes.x +150, 50);
 
 
 mp.events.add("client:playermenu:mainMenu", (admin) => {
-   let main = new Menu("Player", "Spielermenü", MenuPoint);
-    main.AddItem(new UIMenuItem("Animationen","Animationen"));
-    main.AddItem(new UIMenuItem("Inventar","Öffnet dein Inventar"));
-    main.AddItem(new UIMenuItem("Portmone","Dein Portmone"));
-    main.AddItem(new UIMenuItem("Kleidung","Kleidung an/ausziehen"));
-    main.AddItem(new UIMenuItem("Interaktionen","Interaktionen mit anderen Spielern"));
-    main.AddItem(new UIMenuItem("Laufstile","Laufstile deines Characters"));
-    main.AddItem(new UIMenuItem("Schlüsselverwaltung","Alle Schlüssel die du besitzt"));
-    main.AddItem(new UIMenuItem("Einstellungen","Hier kannst du einstellungen ändern"));
+   let main = new Menu("Player", "Playermenu", MenuPoint);
+    main.AddItem(new UIMenuItem("Animations","Open your animations."));
+    main.AddItem(new UIMenuItem("Inventory","Open your inventory."));
+    main.AddItem(new UIMenuItem("Wallet","Your money & documents."));
+    main.AddItem(new UIMenuItem("Clothing","Take clothes on / off."));
+    main.AddItem(new UIMenuItem("Interactions","Interact with other players."));
+    main.AddItem(new UIMenuItem("Walkingstyles","Choose your walkingstyle."));
+    main.AddItem(new UIMenuItem("Key Managment","Edit your keys."));
+    main.AddItem(new UIMenuItem("Settings","Settings [Atm Blips etc.]"));
     if (admin > 0) {
-      main.AddItem(new UIMenuItem("Admin","Abuse mich und ich Fick Dich!"));
+      main.AddItem(new UIMenuItem("Administration","Be carefull what you do!"));
     }  
-    main.AddItem( new UIMenuItem("Schließen", ""));
+    main.AddItem( new UIMenuItem("Close", ""));
     main.Visible = true;
 
     main.ItemSelect.on((item, index, value) => {
-    if (item.Text == "Kleidung") {
+    if (item.Text == "Clothing") {
       mp.events.callRemote("server:clothes:showKleidung");
       main.Close();
-    } else if (item.Text == "Admin") {
+    } else if (item.Text == "Administration") {
       mp.events.callRemote("server:admin:openAdmin",admin);
       main.Close();   
-    } else if (item.Text == "Inventar") {
+    } else if (item.Text == "Inventory") {
       mp.events.callRemote("server:inventory:prepareMenu");
       main.Close();  
-    } else if (item.Text == "Laufstile") {
+    } else if (item.Text == "Walkingstyles") {
         mp.events.callRemote("requestWalkingStyles");
         main.Close();  
-    } else if (item.Text == "Animationen") {
+    } else if (item.Text == "Animations") {
       mp.events.call("client:playermenu:openAnim");
       main.Close();   
-    } else if (item.Text == "Schlüsselverwaltung") {
+    } else if (item.Text == "Key Managment") {
       mp.events.call("client:playermenu:openKeys");
       main.Close(); 
-    } else if (item.Text == "Einstellungen") {
+    } else if (item.Text == "Settings") {
       mp.events.call("client:playermenu:settings");
       main.Close(); 
-    } else if (item.Text == "Interaktionen") {
+    } else if (item.Text == "Interactions") {
       mp.events.callRemote("server:playermenu:interaction");
       main.Close(); 
-    } else if (item.Text == "Schließen") {
+    } else if (item.Text == "Close") {
       main.Close();
     }
   });
@@ -120,119 +120,119 @@ mp.events.addDataHandler("walkingStyle", (entity, value) => {
 
 mp.events.add("client:playermenu:openAnim", () => {
   let ui_anim = new Menu("Animationen", "", MenuPoint);
-  ui_anim.AddItem(new UIMenuItem("Shortcut Festlegen","Speicher die Shortcuts"));
-  ui_anim.AddItem(new UIMenuItem("Sitzen","Sitzanimationen"));
-  ui_anim.AddItem(new UIMenuItem("Stehen","Stehanimationen"));
-  ui_anim.AddItem(new UIMenuItem("Tänze","Tanz Animationen"));
-  ui_anim.AddItem(new UIMenuItem("Sport","Sportanimationen")); 
-  ui_anim.AddItem( new UIMenuItem("Schließen", ""));
+  ui_anim.AddItem(new UIMenuItem("Create Shortcuts [NUMPAD]","Create & safe shortcuts"));
+  ui_anim.AddItem(new UIMenuItem("Sit down","Chair animations etc."));
+  ui_anim.AddItem(new UIMenuItem("Stand","Lean against the wall"));
+  ui_anim.AddItem(new UIMenuItem("Dance","Nice dancemoves"));
+  ui_anim.AddItem(new UIMenuItem("Sport","Move your body")); 
+  ui_anim.AddItem( new UIMenuItem("Close", ""));
   ui_anim.Visible = true;
 
   ui_anim.ItemSelect.on((item, index, value) => {
-    if (item.Text == "Shortcut Festlegen") {
+    if (item.Text == "Create Shortcuts [NUMPAD]") {
       mp.events.callRemote("server:shortcut:openMenu");
       ui_anim.Close();
-    } else if (item.Text == "Sitzen") {
+    } else if (item.Text == "Sit down") {
       mp.events.call("client:anim:sitzen");
       ui_anim.Close();    
-    } else if (item.Text == "Schließen") {
+    } else if (item.Text == "Close") {
     ui_anim.Close();
     }
   });
 });
 
 mp.events.add("client:playermenu:interaction", (waffena, waffenb, pkw, lkw, pilot, job,ergeben,fesseln) => {
-  let ui_interaction = new Menu("Interaktionen", "", MenuPoint);
-  ui_interaction.AddItem(new UIMenuItem("Ausweis zeigen",""));
+  let ui_interaction = new Menu("Interactions", "", MenuPoint);
+  ui_interaction.AddItem(new UIMenuItem("Show your ID",""));
   if (waffena == 1) {
-    ui_interaction.AddItem(new UIMenuItem("Waffenschein A zeigen",""));
+    ui_interaction.AddItem(new UIMenuItem("Show gun license A",""));
   }
   if (waffenb == 1) {
-    ui_interaction.AddItem(new UIMenuItem("Waffenschein B zeigen",""));
+    ui_interaction.AddItem(new UIMenuItem("Show gun license B",""));
   } 
   if (pkw == 1) {
-    ui_interaction.AddItem(new UIMenuItem("PKW Führerschein zeigen","")); 
+    ui_interaction.AddItem(new UIMenuItem("Show car drivers license","")); 
   }
   if (lkw == 1) {
-    ui_interaction.AddItem(new UIMenuItem("LKW Führerschein zeigen","")); 
+    ui_interaction.AddItem(new UIMenuItem("Show truck drivers license","")); 
   }
   if (pilot == 1) {
-    ui_interaction.AddItem(new UIMenuItem("Piloten Lizenz zeigen","")); 
+    ui_interaction.AddItem(new UIMenuItem("Show your fly license","")); 
   }
   if (job == 1) {
-    ui_interaction.AddItem(new UIMenuItem("Job Lizenz zeigen","")); 
+    ui_interaction.AddItem(new UIMenuItem("Show your work permit","")); 
   }  
-  ui_interaction.AddItem(new UIMenuItem("Geld geben",""));
+  ui_interaction.AddItem(new UIMenuItem("Give money to target",""));
   if (ergeben == 1) {
-    ui_interaction.AddItem(new UIMenuItem("Durchsuchen",""));
+    ui_interaction.AddItem(new UIMenuItem("Search through",""));
     if (fesseln == 0) {
-      ui_interaction.AddItem(new UIMenuItem("Fesseln",""));
+      ui_interaction.AddItem(new UIMenuItem("Tie up your target",""));
     } else {
-      ui_interaction.AddItem(new UIMenuItem("Entfesseln",""));
+      ui_interaction.AddItem(new UIMenuItem("Unleash your target",""));
     }  
-    ui_interaction.AddItem(new UIMenuItem("Ausrauben",""));  
+    ui_interaction.AddItem(new UIMenuItem("DO A ROB!",""));  
   }
-  ui_interaction.AddItem( new UIMenuItem("Schließen", ""));
+  ui_interaction.AddItem( new UIMenuItem("Close", ""));
   ui_interaction.Visible = true;
 
   ui_interaction.ItemSelect.on((item, index, value) => {
-    if (item.Text == "Ausweis zeigen") {
+    if (item.Text == "Show your ID") {
       mp.events.callRemote("server:playermenu:giveausweis");
       ui_interaction.Close();
-    } else if (item.Text == "Waffenschein A zeigen") {
+    } else if (item.Text == "Show gun license A") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();  
-    } else if (item.Text == "Waffenschein B zeigen") {
+    } else if (item.Text == "Show gun license B") {
       mp.events.callRemote("server:playermenu:giveweaponb");
       ui_interaction.Close();    
-    } else if (item.Text == "PKW Führerschein zeigen") {
+    } else if (item.Text == "Show car drivers license") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();  
-    } else if (item.Text == "LKW Führerschein zeigen") {
+    } else if (item.Text == "Show truck drivers license") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();  
-    } else if (item.Text == "Piloten Lizenz zeigen") {
+    } else if (item.Text == "Show your fly license") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close(); 
-    } else if (item.Text == "Job Lizenz zeigen") {
+    } else if (item.Text == "Show your work permit") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();   
-    } else if (item.Text == "Geld geben") {
+    } else if (item.Text == "Give money to target") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();  
-    } else if (item.Text == "Durchsuchen") {
+    } else if (item.Text == "search through") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();  
-    } else if (item.Text == "Fesseln") {
+    } else if (item.Text == "Tie up your target") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close(); 
-    } else if (item.Text == "Entfesseln") {
+    } else if (item.Text == "Unleash your target") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close(); 
-    } else if (item.Text == "Ausrauben") {
+    } else if (item.Text == "DO A ROB!") {
       mp.events.callRemote("server:playermenu:giveweapona");
       ui_interaction.Close();   
-    } else if (item.Text == "Schließen") {
+    } else if (item.Text == "Close") {
       ui_interaction.Close();
     }
   });
 });
 
 mp.events.add("client:playermenu:openKeys", () => {
-  let ui_Key = new Menu("Keys", "", MenuPoint);
-  ui_Key.AddItem(new UIMenuItem("Fahrzeugschlüssel",""));
-  ui_Key.AddItem(new UIMenuItem("Haustürschlüssel",""));
-  ui_Key.AddItem( new UIMenuItem("Schließen", ""));
+  let ui_Key = new Menu("Key Managment", "", MenuPoint);
+  ui_Key.AddItem(new UIMenuItem("Vehicle keys",""));
+  ui_Key.AddItem(new UIMenuItem("House keys",""));
+  ui_Key.AddItem( new UIMenuItem("Close", ""));
   ui_Key.Visible = true;
 
   ui_Key.ItemSelect.on((item, index, value) => {
-    if (item.Text == "Fahrzeugschlüssel") {
+    if (item.Text == "Vehicle keys") {
       mp.events.callRemote("server:vehKeys:openKeys");
       ui_Key.Close();
-    } else if (item.Text == "Haustürschlüssel") {
+    } else if (item.Text == "House keys") {
       mp.events.callRemote("server:vehKeys:openKeys");
       ui_Key.Close();    
-    } else if (item.Text == "Schließen") {
+    } else if (item.Text == "Close") {
       ui_Key.Close();
     }
   });
@@ -241,85 +241,85 @@ mp.events.add("client:playermenu:openKeys", () => {
 
 
 mp.events.add("client:admin:openAdmin", (admin) => {
-  let ui_admin = new Menu("Admin", "Abuse mich und ich Fick Dich!", MenuPoint);
-  ui_admin.AddItem(new UIMenuItem("Spielerliste","Wir sind die NSA!"));
-  ui_admin.AddItem(new UIMenuItem("Heilen","Heilwasser ist Beste!"));
-  ui_admin.AddItem(new UIMenuItem("Weste","Heilwasser ist Beste!"));
-  ui_admin.AddItem(new UIMenuItem("Unsichtbar","Der Harry Potter umhang"));
-  ui_admin.AddItem(new UIMenuItem("Vehicle Repair","Der Harry Potter umhang"));
+  let ui_admin = new Menu("Administration", "Be carefull what you do!", MenuPoint);
+  ui_admin.AddItem(new UIMenuItem("Playerlist",""));
+  ui_admin.AddItem(new UIMenuItem("Heal",""));
+  ui_admin.AddItem(new UIMenuItem("Armor",""));
+  ui_admin.AddItem(new UIMenuItem("Invisible",""));
+  ui_admin.AddItem(new UIMenuItem("Vehicle Repair",""));
    if (admin > 1) {
-    ui_admin.AddItem(new UIMenuItem("Godmode","Bin ich HULK?"));
+    ui_admin.AddItem(new UIMenuItem("GODMODE","I FEEL LIKE HULK!"));
    }   
    if (admin > 2) {
-    ui_admin.AddItem(new UIMenuItem("Banwetter","Ich bin ZEUS!"));
-    ui_admin.AddItem(new UIMenuItem("Banwetter aus","Ich bin GOTT!"));
+    ui_admin.AddItem(new UIMenuItem("Weather for ban a playerr",""));
+    ui_admin.AddItem(new UIMenuItem("Set Weather to normal",""));
    }  
-   ui_admin.AddItem( new UIMenuItem("Schließen", ""));
+   ui_admin.AddItem( new UIMenuItem("Close", ""));
    ui_admin.Visible = true;
 
    ui_admin.ItemSelect.on((item, index, value) => {
     let position = mp.players.local.position;
     let vehHandle = mp.game.vehicle.getClosestVehicle(position.x, position.y, position.z, 5, 0, 70);
       let vehicle = mp.vehicles.atHandle(vehHandle);
-   if (item.Text == "Spielerliste") {
+   if (item.Text == "Playerlist") {
      mp.events.callRemote("server:admin:playerlist");
      ui_admin.Close();
-   } else if (item.Text == "Admin") {
+   } else if (item.Text == "Administration") {
      mp.events.callRemote("server:admin:openAdmin",admin);
      ui_admin.Close();  
-   } else if (item.Text == "Banwetter") {
+   } else if (item.Text == "Weather for ban a player") {
       mp.events.callRemote("server:admin:banwetter");
       ui_admin.Close();   
-   } else if (item.Text == "Banwetter aus") {
+   } else if (item.Text == "Set Weather to normal") {
       mp.events.callRemote("server:admin:banwetteraus");
       ui_admin.Close();   
-    } else if (item.Text == "Heilen") {
+    } else if (item.Text == "Heal a player") {
       mp.events.callRemote("server:admin:heal");
       ui_admin.Close();   
-    } else if (item.Text == "Weste") {
+    } else if (item.Text == "Give player armor") {
       mp.events.callRemote("server:admin:armor");
       ui_admin.Close(); 
-    } else if (item.Text == "Vehicle Repair") {
+    } else if (item.Text == "Repair vehicle") {
       mp.events.callRemote("server:admin:repair",vehicle);
       ui_admin.Close(); 
-   } else if (item.Text == "Schließen") {
+   } else if (item.Text == "Close") {
     ui_admin.Close();
    }
  });
 });
 
 mp.events.add("client:admin:subMenu", (id) => {
-  let ui_admin = new Menu("Admin", "Abuse mich und ich Fick Dich!", MenuPoint);
-  ui_admin.AddItem(new UIMenuItem("Zum Spieler Teleportieren",""));
-  ui_admin.AddItem(new UIMenuItem("Spieler her Teleportieren","Heilwasser ist Beste!"));
-  ui_admin.AddItem(new UIMenuItem("Kicken","Der Harry Potter umhang"));
-  ui_admin.AddItem(new UIMenuItem("Perma Bannen","Der Harry Potter umhang"));
-  ui_admin.AddItem(new UIMenuItem("Heilen","Der Harry Potter umhang"));
+  let ui_admin = new Menu("Administration", "Be carefull what you do!", MenuPoint);
+  ui_admin.AddItem(new UIMenuItem("Go to player",""));
+  ui_admin.AddItem(new UIMenuItem("Get player here",""));
+  ui_admin.AddItem(new UIMenuItem("Kick from server.",""));
+  ui_admin.AddItem(new UIMenuItem("Ban: Permanent",""));
+  ui_admin.AddItem(new UIMenuItem("Heal player",""));
 
    ui_admin.AddItem( new UIMenuItem("Schließen", ""));
    ui_admin.Visible = true;
 
    ui_admin.ItemSelect.on((item, index, value) => {
-   if (item.Text == "Zum Spieler Teleportieren") {
+   if (item.Text == "Go to player") {
      mp.events.callRemote("server:admin:tpto",id);
      ui_admin.Close();
-   } else if (item.Text == "Spieler her Teleportieren") {
+   } else if (item.Text == "Get player here") {
      mp.events.callRemote("server:admin:tphere",id);
      ui_admin.Close();    
-  } else if (item.Text == "Perma Bannen") {
+  } else if (item.Text == "Ban: Permanent") {
       mp.events.callRemote("server:admin:permban",id);
       ui_admin.Close(); 
-    } else if (item.Text == "Kicken") {
+    } else if (item.Text == "Kick from server.") {
       mp.events.callRemote("server:admin:kick",id);
       ui_admin.Close(); 
-   } else if (item.Text == "Schließen") {
+   } else if (item.Text == "Close") {
     ui_admin.Close();
    }
  });
 });
 
 function playerListDraw(playerJSON,id){
-  ui_playerlist = new Menu("Spielerliste", "Liste aller Spieler", MenuPoint);
+  ui_playerlist = new Menu("Playlist", "List of all players", MenuPoint);
   ui_playerlist.Visible = true;
   if (playerJSON != "none") {
     playerJSON = JSON.parse(playerJSON);
@@ -329,7 +329,7 @@ function playerListDraw(playerJSON,id){
         newItem.SetRightLabel("");
     });
   } else {
-    ui_playerlist.AddItem( new UIMenuItem("Keine Spieler Online!", ""));
+    ui_playerlist.AddItem( new UIMenuItem("No player online.", ""));
   }
 
 
@@ -345,9 +345,9 @@ mp.events.add("client:playermenu:settings", (gender) => {
   ui_Kleidung = new Menu("Einstellungen", "", MenuPoint);
   ui_Kleidung.AddItem(new UIMenuItem("Auswählen", ""));
   ui_Kleidung.AddItem(new UIMenuCheckboxItem("ATM Blips", checked = checkAtm, Description = ""));
-  ui_Kleidung.AddItem(new UIMenuCheckboxItem("Garagen Blips", checked = checkGaragen, Description = ""));
+  ui_Kleidung.AddItem(new UIMenuCheckboxItem("Parking Blips", checked = checkGaragen, Description = ""));
   ui_Kleidung.AddItem(new UIMenuCheckboxItem("Job Blips", checked = checkJobs, Description = ""));
-  ui_Kleidung.AddItem(new UIMenuCheckboxItem("Öffentliche Blips", checked = checkOeffentlich, Description = ""));
+  ui_Kleidung.AddItem(new UIMenuCheckboxItem("Public Blips", checked = checkOeffentlich, Description = ""));
   ui_Kleidung.AddItem(new UIMenuCheckboxItem("Secret Blips", checked = checkSecret, Description = ""));
 
   ui_Kleidung.Visible = true;
@@ -363,7 +363,7 @@ mp.events.add("client:playermenu:settings", (gender) => {
       } else {
           checkAtm = false;
       }
-    } else if (checkbox.Text === "Garagen Blips"){
+    } else if (checkbox.Text === "Parking Blips"){
       if (value === true){
         checkGaragen = true;
       } else {
@@ -375,7 +375,7 @@ mp.events.add("client:playermenu:settings", (gender) => {
       } else {
         checkJobs = false;
       }
-    } else if (checkbox.Text === "Öffentliche Blips"){
+    } else if (checkbox.Text === "Public Blips"){
       if (value === true){            
         checkOeffentlich = true;
       } else {
@@ -395,12 +395,12 @@ mp.events.add("client:playermenu:settings", (gender) => {
 mp.events.add("client:clothes:showKleidung", (gender) => {
     ui_Kleidung = new Menu("Kleidung", "", MenuPoint);
     ui_Kleidung.AddItem(new UIMenuItem("Auswählen", ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Hut", checked = checkHut, Description = ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Brille", checked = checkBrille, Description = ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Maske", checked = checkMaske, Description = ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Oberkörper", checked = checkOberkoerper, Description = ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Hose", checked = checkHose, Description = ""));
-    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Schuhe", checked = checkSchuhe, Description = ""));  
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Cap", checked = checkHut, Description = ""));
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Glasses", checked = checkBrille, Description = ""));
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Mask", checked = checkMaske, Description = ""));
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Shirt", checked = checkOberkoerper, Description = ""));
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Trousers", checked = checkHose, Description = ""));
+    ui_Kleidung.AddItem(new UIMenuCheckboxItem("Shoes", checked = checkSchuhe, Description = ""));  
     ui_Kleidung.Visible = true;
   
     ui_Kleidung.MenuClose.on(() => {
@@ -408,7 +408,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
     });
   
     ui_Kleidung.CheckboxChange.on((checkbox, value) => {
-      if (checkbox.Text === "Hut"){
+      if (checkbox.Text === "Cap"){
         if (value === true){
             mp.events.callRemote("server:playermenu:setexistHut");
             checkHut = true;
@@ -420,7 +420,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
           }
           checkHut = false;
         }
-      } else if (checkbox.Text === "Brille"){
+      } else if (checkbox.Text === "Glasses"){
         if (value === true){
           mp.events.callRemote("server:playermenu:setexistEye");
           checkBrille = true;
@@ -432,7 +432,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
           }
           checkBrille = false;
         }
-      } else if (checkbox.Text === "Maske"){
+      } else if (checkbox.Text === "Mask"){
         if (value === true){        
           mp.events.callRemote("server:playermenu:setexistMask");
           checkMaske = true;
@@ -444,7 +444,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
           }
           checkMaske = false;
         }
-      } else if (checkbox.Text === "Oberkörper"){
+      } else if (checkbox.Text === "Shirt"){
         if (value === true){         
             mp.events.callRemote("server:playermenu:setexistTorso");     
           checkOberkoerper = true;
@@ -456,7 +456,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
           }
           checkOberkoerper = false;
         }
-      } else if (checkbox.Text === "Hose") {
+      } else if (checkbox.Text === "Trousers") {
         if (value === true){
           mp.events.callRemote("server:playermenu:setexistLeg");
           checkHose = true;
@@ -468,7 +468,7 @@ mp.events.add("client:clothes:showKleidung", (gender) => {
           }
           checkHose = false;
         }
-      } else if (checkbox.Text === "Schuhe"){
+      } else if (checkbox.Text === "Shoes"){
         if (value === true){
             mp.events.callRemote("server:playermenu:setexistShoe");  
           checkSchuhe = true;
