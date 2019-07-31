@@ -8,38 +8,61 @@ mp.events.add("server:farming:loadmarker", (player) => {
 });
 
 mp.events.add("server:farming:farm",(player, id, itemid) => {
-    console.log("Test: "+player.data.isFarming);
     if (player.data.isFarming == true) {
         player.notify("~r~Dont Spam Farming");        
     } else {
+        gm.mysql.handle.query("SELECT u.*, i.itemName, i.usable, i.itemcount FROM user_items u LEFT JOIN items i ON i.id = u.itemId WHERE u.charId = ?", [player.data.charId],function(err,res) {
+            if (err) console.log("Error in Select Farm Items: "+err);
+            if (res.length > 0) {
+            var i = 1;
+            var weight = 0.00;
+            var inv = {};
+            res.forEach(function(item) {
+              if (i == res.length) {
+                inv[""+item.id] = item;
+                weight = parseFloat(parseFloat(weight) + (parseInt(item.amount) * parseFloat(item.itemcount))).toFixed(2);
+              } else {
+                inv[""+item.id] = item;
+                weight = parseFloat(parseFloat(weight) + (parseInt(item.amount) * parseFloat(item.itemcount))).toFixed(2);
+              }
+              i = parseInt(parseInt(i) + 1);
+            });
+            player.data.weight = weight;
+            } else {
+                player.data.weight = 0.00;
+            }
+
+            if(parseFloat(player.data.weight) >= parseFloat(player.data.inventory)) {
+                player.notify("Du kannst nicht soviel tragen!");
+                return;
+            }
         player.playAnimation("amb@medic@standing@kneel@base","base",1,33);
         player.data.isFarming = true;
         setTimeout(_ => {
         if (mp.players.exists(player)) {
             player.stopAnimation();
-            gm.mysql.handle.query("SELECT * FROM items WHERE id = ?", [itemid],function(err,res) {
-                if (err) console.log("Error in Select Farm Items: "+err);
-                player.data.isFarming = false;
-                if (res.length > 0) {                    
+            player.data.isFarming = false;     
+                gm.mysql.handle.query("SELECT * FROM items WHERE id = ?", [itemid], function (err4,res4) {
+                    if (err4) console.log("Error in Select * Items: "+err4);
                     gm.mysql.handle.query("SELECT * FROM user_items WHERE itemId = ? AND charId = ?",[itemid,player.data.charId], function (err1,res1) {
                         if (err1) console.log("Error in Select user items: "+err1);
                         if (res1.length > 0) {
                             var newAm = parseInt(parseInt(res1[0].amount) + parseInt(1));
                             gm.mysql.handle.query("UPDATE user_items SET amount = ? WHERE charId = ? AND itemId = ?",[newAm, player.data.charId, itemid], function (err2,res2) {
                                 if (err2) console.log("Error in Update User Items on Farming: "+err2);
-                                player.notify("~g~You have farmed 1x "+res[0].itemName);
+                                player.notify("~g~You have farmed 1x "+res4[0].itemName);
                             });
                         } else {
                             gm.mysql.handle.query("INSERT INTO user_items SET amount = '1', itemId = ?, charId = ?",[itemid,player.data.charId], function (err3,res3) {
                                 if (err3) console.log("Error in Insert Items on Farming: "+err3);
-                                player.notify("~g~You have farmed 1x "+res[0].itemName);
+                                player.notify("~g~You have farmed 1x "+res4[0].itemName);
                             });
                         }
                     });
-                }
-            });
-        }
+                });                
+            }        
       }, 5000);
+    });
     }    
 });
 
