@@ -37,3 +37,5 @@ mp.gui.chat.activate(false);
 mp.nametags.enabled = false;
 
 mp.game.streaming.requestIpl("vw_casino_main");
+
+mp.events.call('setDiscordStatus', 'Visit: RageMP', 'Open Source Roleplay');
