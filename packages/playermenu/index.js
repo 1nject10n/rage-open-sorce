@@ -56,6 +56,18 @@ mp.events.add("server:admin:banwetter",(player,targetid) => {
     });
 });
 
+mp.events.add("server:admin:repair", (player, vehicle) => {
+    if(mp.vehicles.exists(vehicle)) {
+        var vehicles = getVehicleFromPosition(player.position, 3);
+      if (vehicles.length > 0) {
+        player.notify("~g~Fahrzeug repariert");
+        if (mp.vehicles.exists(vehicles[0])) {
+          vehicles[0].repair();
+        }
+      }
+    }
+  });
+
 mp.events.add("server:admin:banwetteraus",(player,targetid) => {
     mp.players.forEach((player) => {
         var newWeather = "RAIN";
@@ -351,3 +363,13 @@ function getNearestPlayer(player, range) {
         }
     );
 };
+
+function getVehicleFromPosition(position, range) {
+    const returnVehicles = [];
+    mp.vehicles.forEachInRange(position, range,
+        (vehicle) => {
+            returnVehicles.push(vehicle);
+        }
+    );
+    return returnVehicles;
+}

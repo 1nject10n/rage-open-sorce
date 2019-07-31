@@ -5,7 +5,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 80vh;
-  font-family: arial;
+  font-family: Tahoma;
 }
 .number-input {
   position: relative;
@@ -17,7 +17,7 @@ body {
   height: 40px;
   box-sizing: border-box;
   outline: none;
-  border: 1px solid rgb(0, 213, 246);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 1px;
   padding: 10px 10px 10px 100px;
 }
@@ -30,5 +30,5 @@ body {
   line-height: 40px;
   color: white;
   border-radius: 1px 0 0 1px;
-  background: #104e8b;
+  background: #000000;
 }

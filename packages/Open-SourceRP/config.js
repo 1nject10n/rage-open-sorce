@@ -18,6 +18,10 @@ conf.atms_params = new Array(500);
 conf.sys_shop = new Array(500);
 conf.shop_params = new Array(500);
 
+//carSHOP
+conf.sys_carshop = new Array(500);
+conf.carshop_params = new Array(500);
+
 //Blip
 conf.sys_blip = new Array(500);
 conf.blip_params = new Array(500);
@@ -52,6 +56,11 @@ for(let i = 0; i <conf.veh_params.length; i++) {
 //SHOP
    for(let i = 0; i <conf.shop_params.length; i++) {
     conf.shop_params[i] = {};
+  }
+
+  //CarSHOP
+  for(let i = 0; i <conf.carshop_params.length; i++) {
+    conf.carshop_params[i] = {};
   }
 
   //Blip

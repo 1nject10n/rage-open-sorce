@@ -361,6 +361,9 @@ mp.events.add("server:charchooser:menuclick", (player, id) => {
 
                     player.data.ergeben == 0;
 
+                    player.data.isFarming = false;
+                    player.data.isProcessing = false;   
+
                     
                     
                     
@@ -467,7 +470,8 @@ mp.events.add("server:charchooser:menuclick", (player, id) => {
                                     mp.events.call("server:shop:loadmarker",player);
                                     mp.events.call("server:farming:loadmarker",player);
                                     mp.events.call("server:housing:loadmarker",player);    
-                                    mp.events.call("server:teleport:loadmarker",player);   
+                                    mp.events.call("server:teleport:loadmarker",player);
+                                    mp.events.call("server:shop:loadmarker",player);                                    
                                                                   
                                     gm.mysql.handle.query("UPDATE characters SET isOnline = '1' , onlineId = ? WHERE id = ?", [player.id,player.data.charId],function(err5,res5) {
                                         if(err5) console.log("Error in Update Online Status: "+err5);

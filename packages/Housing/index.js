@@ -61,7 +61,9 @@ mp.events.add("server:housing:buyhouse",(player,id) => {
         if (res.length > 0) {
             gm.mysql.handle.query("SELECT COUNT(houseid) AS counter FROM user_houses WHERE houseid = ?",[id], function(err1,res1) {
                 if (err1) console.log("Error in Select user houses: "+err1);
-                if (res1[0].counter <= res[0].maxBuy) {
+                if (res1[0].counter >= res[0].maxBuy) {
+                    player.notify("~r~This House is Full");                    
+                } else {
                     gm.mysql.handle.query("SELECT * FROM bank_konten WHERE ownerId = ?",[player.data.charId],function(err2,res2) {
                         if (err2) console.log("Error in Select Bank Konten: "+err3);
                         if (res2.length > 0) {
@@ -83,8 +85,6 @@ mp.events.add("server:housing:buyhouse",(player,id) => {
                             player.notify("~r~You have not Bank Konto");
                         }
                     });
-                } else {
-                    player.notify("~r~This House is Full");
                 }
             });
         }

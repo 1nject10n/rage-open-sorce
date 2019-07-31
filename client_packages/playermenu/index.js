@@ -246,6 +246,7 @@ mp.events.add("client:admin:openAdmin", (admin) => {
   ui_admin.AddItem(new UIMenuItem("Heilen","Heilwasser ist Beste!"));
   ui_admin.AddItem(new UIMenuItem("Weste","Heilwasser ist Beste!"));
   ui_admin.AddItem(new UIMenuItem("Unsichtbar","Der Harry Potter umhang"));
+  ui_admin.AddItem(new UIMenuItem("Vehicle Repair","Der Harry Potter umhang"));
    if (admin > 1) {
     ui_admin.AddItem(new UIMenuItem("Godmode","Bin ich HULK?"));
    }   
@@ -257,6 +258,9 @@ mp.events.add("client:admin:openAdmin", (admin) => {
    ui_admin.Visible = true;
 
    ui_admin.ItemSelect.on((item, index, value) => {
+    let position = mp.players.local.position;
+    let vehHandle = mp.game.vehicle.getClosestVehicle(position.x, position.y, position.z, 5, 0, 70);
+      let vehicle = mp.vehicles.atHandle(vehHandle);
    if (item.Text == "Spielerliste") {
      mp.events.callRemote("server:admin:playerlist");
      ui_admin.Close();
@@ -274,6 +278,9 @@ mp.events.add("client:admin:openAdmin", (admin) => {
       ui_admin.Close();   
     } else if (item.Text == "Weste") {
       mp.events.callRemote("server:admin:armor");
+      ui_admin.Close(); 
+    } else if (item.Text == "Vehicle Repair") {
+      mp.events.callRemote("server:admin:repair",vehicle);
       ui_admin.Close(); 
    } else if (item.Text == "Schließen") {
     ui_admin.Close();

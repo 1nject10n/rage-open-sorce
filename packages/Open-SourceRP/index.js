@@ -110,6 +110,28 @@ function loadShop()
     })
 }
 
+loadCarShop();
+function loadCarShop()
+{
+    gm.mysql.handle.query("SELECT * FROM carshops", [], function (error, results, fields) {
+        if(error) console.log("Error in Load Carshops: "+error);
+        for(let i=0; i<results.length; i++) {
+            conf.carshop_params[i]['id'] = results[i].id;
+            conf.carshop_params[i]['posX'] = results[i].posX;
+            conf.carshop_params[i]['posY'] = results[i].posY;
+            conf.carshop_params[i]['posZ'] = results[i].posZ;
+            conf.carshop_params[i]['name'] = results[i].name;
+            conf.carshop_params[i] = mp.blips.new(225, new mp.Vector3(conf.carshop_params[i]['posX'],conf.carshop_params[i]['posY'],conf.carshop_params[i]['posZ']),
+            {
+                name: ""+conf.carshop_params[i]['name'],
+                color: 4,
+                shortRange: true,
+            });                 
+        }
+            
+    })
+}
+
 loadBlip();
 function loadBlip()
 {

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80014
 File Encoding         : 65001
 
-Date: 2019-07-30 16:50:09
+Date: 2019-07-31 14:18:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -71,7 +71,7 @@ CREATE TABLE `bank_konten` (
 -- ----------------------------
 -- Records of bank_konten
 -- ----------------------------
-INSERT INTO `bank_konten` VALUES ('1', '2', '55000.00', '14654565', 'Anna Klein');
+INSERT INTO `bank_konten` VALUES ('1', '2', '7242.00', '14654565', 'Anna Klein');
 INSERT INTO `bank_konten` VALUES ('2', '10', '5000.00', '465465465', 'Marcel Maj');
 
 -- ----------------------------
@@ -96,6 +96,49 @@ INSERT INTO `blips` VALUES ('1', '-85.276', '38.127', 'License Shop', '1', '1', 
 INSERT INTO `blips` VALUES ('2', '2727', '2857', 'Stone Mine', '1', '464', '1');
 INSERT INTO `blips` VALUES ('3', '2391', '3308', 'Stone Proccessor', '1', '365', '1');
 INSERT INTO `blips` VALUES ('4', '2341', '3126', 'Cement Selling', '1', '628', '1');
+
+-- ----------------------------
+-- Table structure for `carshops`
+-- ----------------------------
+DROP TABLE IF EXISTS `carshops`;
+CREATE TABLE `carshops` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `posX` float NOT NULL,
+  `posY` float NOT NULL,
+  `posZ` float NOT NULL,
+  `posR` float NOT NULL,
+  `ped` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `spawnX` float NOT NULL,
+  `spawnY` float NOT NULL,
+  `spawnZ` float NOT NULL,
+  `spawnR` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of carshops
+-- ----------------------------
+INSERT INTO `carshops` VALUES ('1', 'Sandy Supercars', '2364.49', '3136.95', '48.211', '261', '0x89768941', 'Super', '2368.57', '3128.28', '48.37', '227');
+
+-- ----------------------------
+-- Table structure for `carshop_cars`
+-- ----------------------------
+DROP TABLE IF EXISTS `carshop_cars`;
+CREATE TABLE `carshop_cars` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `model` varchar(50) NOT NULL DEFAULT '0',
+  `price` float NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of carshop_cars
+-- ----------------------------
+INSERT INTO `carshop_cars` VALUES ('1', 't20', '8645', 'Super');
+INSERT INTO `carshop_cars` VALUES ('2', 'xa21', '25468', 'Super');
 
 -- ----------------------------
 -- Table structure for `characters`
@@ -460,7 +503,7 @@ CREATE TABLE `teleporter` (
 -- ----------------------------
 -- Records of teleporter
 -- ----------------------------
-INSERT INTO `teleporter` VALUES ('1', '219.641', '781.863', '204.674', '0', '219', '772', '204', '5');
+INSERT INTO `teleporter` VALUES ('1', '219.641', '781.863', '204.674', '0', '219', '772', '204', '0');
 
 -- ----------------------------
 -- Table structure for `user_houses`
@@ -492,13 +535,13 @@ CREATE TABLE `user_items` (
   `itemId` int(11) NOT NULL DEFAULT '0',
   `amount` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user_items
 -- ----------------------------
-INSERT INTO `user_items` VALUES ('11', '2', '1', '11');
-INSERT INTO `user_items` VALUES ('12', '2', '2', '11');
+INSERT INTO `user_items` VALUES ('11', '2', '1', '8');
+INSERT INTO `user_items` VALUES ('12', '2', '2', '8');
 INSERT INTO `user_items` VALUES ('13', '14', '1', '1');
 INSERT INTO `user_items` VALUES ('25', '10', '6', '3');
 
@@ -533,7 +576,7 @@ CREATE TABLE `vehicles` (
   `parked` int(11) DEFAULT '1',
   `impounded` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of vehicles
@@ -543,3 +586,11 @@ INSERT INTO `vehicles` VALUES ('2', 'Raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('3', 'Raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('4', 'Raiden', '2', 'Gurke', '1', '0');
 INSERT INTO `vehicles` VALUES ('5', 'Raiden', '2', 'Gurke', '1', '0');
+INSERT INTO `vehicles` VALUES ('6', 'T20', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('7', 't20', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('8', 'xa21', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('9', 'xa21', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('10', 't20', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('11', 't20', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('12', 'xa21', '2', 'NOLIC', '1', '0');
+INSERT INTO `vehicles` VALUES ('13', 't20', '2', 'NOLIC', '1', '0');

@@ -92,6 +92,17 @@ mp.events.add("PushE", (player) => {
 			}
 		}
 	});
+
+	gm.mysql.handle.query("SELECT * FROM carshops WHERE 1=1",[],function(err,res) {
+		if (err) console.log("Error in Select Shops: "+err);
+		for(let i = 0; i < res.length; i++) {
+			let distance = mp.Vector3.Distance2D(player.position, new mp.Vector3(parseFloat(res[i].posX), parseFloat(res[i].posY), parseFloat(res[i].posZ), parseInt(res[i].id)));
+			if (distance <= 4) {
+				mp.events.call("server:carshop:openShop",player,res[i].id,res[i].type);
+			}
+		}
+	});
+	
 	gm.mysql.handle.query("SELECT * FROM teleporter WHERE 1=1",[],function(err,res) {
 		if (err) console.log("Error in Select Shops: "+err);
 		for(let i = 0; i < res.length; i++) {

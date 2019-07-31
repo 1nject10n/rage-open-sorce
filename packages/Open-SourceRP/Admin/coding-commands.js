@@ -90,3 +90,10 @@ mp.events.addCommand("atm",(player) => {
 		});
 	});
 });
+
+mp.events.add('repair', (player, cmd) => {
+	let arr = cmd.split(' ');
+	if (arr[0] == 'repair' && player.vehicle) {
+		player.vehicle.repair();
+	}
+});
